@@ -6,13 +6,14 @@ apt-get install -y --no-install-recommends apt-utils;
 apt-get install  nginx software-properties-common -y; 
 apt-get -y install mysql-server
 apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server;
-mkdir -p /var/run/mysqld/; 
-touch /var/run/mysqld/mysqld.pid; 
-touch /var/run/mysqld/mysqld.sock; 
-chown mysql:mysql -R /var/run/mysqld; 
-service mysql restart; 
-#mysql_secure_installation; 
-mysqladmin -u root password $mysqlpassword; 
+mysql_secure_installation; 
+#mkdir -p /var/run/mysqld/; 
+#touch /var/run/mysqld/mysqld.pid; 
+#touch /var/run/mysqld/mysqld.sock; 
+#chown mysql:mysql -R /var/run/mysqld; 
+#service mysql restart; 
+
+#mysqladmin -u root password $mysqlpassword; 
 
 add-apt-repository ppa:ondrej/php -y; 
 apt-get update --allow-unauthenticated; 
@@ -52,11 +53,7 @@ chmod -R 775 /var/www/laravel/storage;
 chmod -R 775 /var/www/laravel/bootstrap/cache;
 composer install --no-dev; 
 php artisan key:generate;
-php artisan migrate; 
-echo "0. Always run this command when logging in: /distribution-form/fixMysql.sh";
-echo "1. Any changes you make outside of Docker, such as inside your OS's laravel directory, will automatically update inside the docker instance's /var/www/laravel folder. Your original code (from when you ran 'docker build .') will remain in /distribution-form/"
-echo "2. If you have access to a domain name and would like to add SSL, run these commands: ./distributionForm/installCerts.sh;";
-echo "3. Please wait for the remaining commands to complete. Ignore any 'container does not exist' errors."
+
 
 
 #./mysql_install.sh

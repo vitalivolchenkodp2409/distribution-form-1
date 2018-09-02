@@ -4,7 +4,5 @@ WORKDIR /distribution-form
 
 ADD . /distribution-form
 
-RUN \ 
-	/distribution-form/installInsideDocker.sh; 
 
 EXPOSE 80 443
