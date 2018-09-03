@@ -1,5 +1,5 @@
 #!/bin/sh
-mysqlpassword=y78tyutftret; 
+
 apt-get update; 
 apt-get install nginx -y; 
 #mysqladmin -u root password $mysqlpassword; 

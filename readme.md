@@ -2,11 +2,11 @@
 ## Installation on an Ubuntu 16.04 VPS / virtual box
 
 
-1. cd /; apt-get update; apt-get upgrade -y; apt-get install git -y; git clone https://github.com/Project-Oblio/distribution-form.git; 
+1. cd /; apt-get update; apt-get upgrade -y; apt-get install git -y; git clone https://github.com/Project-Oblio/distribution-form.git; nano +39 dist*/nginx*; 
 
-2. cd to distribution-form. inside nginx-default file, keep "server_name 127.0.0.1" for localhost/docker. Change to  "server_name {{public-ip-address}}" or "server_name {{domain name}}" if running on a VPS.
+2. inside the file, keep "server_name 127.0.0.1" for localhost/docker. Change to  "server_name {{public-ip-address}}" or "server_name {{domain name}}" if running on a VPS.
 
-3. Run: cd /; /distribution-form/mysqld.sh; sleep 1m; /distribution-form/installInsideDocker.sh; 
+3. Run: /distribution-form/mysqld.sh; /distribution-form/installInsideDocker.sh; 
 
 4. Go to http://{{server_name}}/phpmyadmin. user "root" password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". Then, cd /var/www/laravel/; php artisan migrate
 
