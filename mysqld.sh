@@ -1,2 +1,2 @@
 #!/bin/sh
-nohup mysqld_safe --skip-grant-tables >myscript2.log 2>&1 & 
+apt-get update; apt-get upgrade -y; apt-get install -y --no-install-recommends apt-utils; apt-get install software-properties-common -y;  apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server;  service mysql stop; mkdir -p /var/run/mysqld/; touch /var/run/mysqld/mysqld.pid; touch /var/run/mysqld/mysqld.sock; chown mysql:mysql -R /var/run/mysqld; mysqld_safe; nohup ./mysqld.sh >myscript.log 2>&1 & 
