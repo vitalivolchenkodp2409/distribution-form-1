@@ -4,11 +4,11 @@ Dockers are basically mini VPS that you can run on any program. The Docker in th
 ## Installation
 1. Install Docker on any OS (Windows, Mac, Ubuntu, etc)
 
-2. Inside this directory, with root priviledges "docker build . -t distribution";
+2. Clone the Github repo. Inside its directory, with root priviledges "./build.sh";
 
-3. Run ./console.sh to access this docker container's Ubuntu 16.04 console with everything installed. Run ./installInsideDocker.sh. This has minimal interaction, the only interaction is creating mysql database. You should set the root password to "y78tyutftret". 
+3. Run ./console.sh to access this docker container's Ubuntu 16.04 console with everything installed. Inside the new Ubuntu 16.04 instance, run /distribution-form/installInsideDocker.sh . This has minimal interaction, the only interaction is creating mysql database. You should set the root password to "y78tyutftret". 
 
-4. Your website will run on localhost:8000. Go to localhost:8000/phpmyadmin and use password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci".
+4. Your website will run on localhost:8000. Go to localhost:8000/phpmyadmin and use password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". Then, inside /var/www/laravel/, run "php artisan migrate".
 
 5. Any files in the cloned repo's ./laravel/ directory (that is, any files you edit from the Github clone, even on Windows) should immediately update in the docker's /var/www/laravel folder. Changes to any other file inside the docker will be lost at rebuild. 
 

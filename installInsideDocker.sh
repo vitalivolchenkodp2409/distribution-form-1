@@ -1,19 +1,20 @@
 #!/bin/sh
-mysqlpassword=mysecretpasswordgoeshere; 
+mysqlpassword=y78tyutftret; 
 apt-get update;
 apt-get upgrade -y;
 apt-get install -y --no-install-recommends apt-utils; 
 apt-get install  nginx software-properties-common -y; 
-apt-get -y install mysql-server
-apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server;
-mysql_secure_installation; 
-#mkdir -p /var/run/mysqld/; 
-#touch /var/run/mysqld/mysqld.pid; 
-#touch /var/run/mysqld/mysqld.sock; 
-#chown mysql:mysql -R /var/run/mysqld; 
+apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server 
+service mysql start; 
+#apt-get install -y mysql-server;
+#mysql_secure_installation; 
+mkdir -p /var/run/mysqld/; 
+touch /var/run/mysqld/mysqld.pid; 
+touch /var/run/mysqld/mysqld.sock; 
+chown mysql:mysql -R /var/run/mysqld; 
 #service mysql restart; 
 
-#mysqladmin -u root password $mysqlpassword; 
+mysqladmin -u root password $mysqlpassword; 
 
 add-apt-repository ppa:ondrej/php -y; 
 apt-get update --allow-unauthenticated; 
