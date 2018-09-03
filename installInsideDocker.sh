@@ -9,11 +9,7 @@ add-apt-repository ppa:ondrej/php -y;
 apt-get update --allow-unauthenticated; 
 apt-get install php7.2-fpm php7.2-common php7.2-mbstring php7.2-xmlrpc php7.2-soap php7.2-gd php7.2-xml php7.2-intl php7.2-mysql php7.2-cli php7.2-zip php7.2-curl nano -y --allow-unauthenticated; 
 
-
-
-
-
-cp nginx-default /etc/nginx/sites-available/default; 
+cp /distribution-form/nginx-default /etc/nginx/sites-available/default; 
 systemctl reload nginx; 
 systemctl restart php7.2-fpm.service;
 apt-get update --allow-unauthenticated; 
