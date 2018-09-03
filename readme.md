@@ -8,7 +8,7 @@
 
 3. Run: cd /; /distribution-form/mysqld.sh; sleep 1m; /distribution-form/installInsideDocker.sh; 
 
-4. Go to "server_name" /phpmyadmin. user "root" password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". Then, cd /var/www/laravel/; php artisan migrate
+4. Go to http://{{server_name}}/phpmyadmin. user "root" password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". Then, cd /var/www/laravel/; php artisan migrate
 
 ### Adding SSL to VPS
 
