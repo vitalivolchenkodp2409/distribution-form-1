@@ -1,5 +1,5 @@
 ## Background
-Dockers are basically mini VPS that you can run on any program. The Docker in this Repo runs an Ubuntu 16.04 instance. To rebuild (i.e. reset the instance), run "docker build . -t distribition".
+Dockers are basically mini VPS that you can run on any program. The Docker in this Repo runs an Ubuntu 16.04 instance. To rebuild (i.e. reset the instance), run ./build.sh
 
 ## Installation
 1. Install Docker on any OS (Windows, Mac, Ubuntu, etc)
@@ -11,6 +11,9 @@ Dockers are basically mini VPS that you can run on any program. The Docker in th
 4. Your website will run on localhost:8000. Go to localhost:8000/phpmyadmin and use password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". Then, inside /var/www/laravel/, run "php artisan migrate".
 
 5. Any files in the cloned repo's ./laravel/ directory (that is, any files you edit from the Github clone, even on Windows) should immediately update in the docker's /var/www/laravel folder. Changes to any other file inside the docker will be lost at rebuild. 
+
+6. Keep in mind any changes outside the /var/www/laravel folder won't carry over to the new instance (this is both a good thing and a bad thing). For modiifications outside the laravel folder (e.g installing a package), add the commands the ./installInsideDocker.sh script to automatically install them each time you rebuild. 
+
 
 
 ## Adding SSL 
