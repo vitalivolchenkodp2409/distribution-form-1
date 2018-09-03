@@ -3,7 +3,7 @@ Dockers are basically mini VPS that you can run on any program. The Docker in th
 
 ## Installation on an Ubuntu 16.04 VPS / virtual box
 
-1. cd /; git clone https://github.com/Project-Oblio/distribution-form.git; /distribution-form/fixMysqld.sh; /distribution-form/installInsideDocker.sh; 
+1. cd /; git clone https://github.com/Project-Oblio/distribution-form.git; /distribution-form/fixMysqld.sh; sleep 1m; /distribution-form/installInsideDocker.sh; 
 
 2. Go to localhost /phpmyadmin and use password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". Then, cd /var/www/laravel/; php artisan migrate
 
