@@ -17,7 +17,7 @@ If you have a domain name connected to your VPS, first edit the "installCerts.sh
 ### Adding Google Auth login, recaptcha tokens, Twilio APIs...
 1. Check the ./laravel/.env file for Google Auth and Recaptcha tokens
 
-2. Twilio API is located ? 
+2. Twilio API key is located ? 
 
 ## Installation on a Docker (Does not work currently due to systemctl problems..)
 ### Background 
