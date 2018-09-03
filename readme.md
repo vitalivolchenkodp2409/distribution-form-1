@@ -9,6 +9,16 @@
 
 If you have a domain name connected to your VPS, first edit the "installCerts.sh" command to provide your domain and emails. Then run /distribution-form/installCerts.sh
 
+### Adding OAuth2.0 token
+1. Create an account called admin@projectoblio.com
+
+2. You will now be able to 
+
+### Adding Google Auth login, recaptcha tokens, Twilio APIs...
+1. Check the ./laravel/.env file for Google Auth and Recaptcha tokens
+
+2. Twilio API is located ? 
+
 ## Installation on a Docker (Does not work currently due to systemctl problems..)
 ### Background 
 Dockers are basically mini VPS that you can run on any OS (windows, mac, etc). The Docker in this Repo runs an Ubuntu 16.04 instance. To rebuild (i.e. reset the instance), run ./build.sh. However after doing a bunch of crap i have learned docker does not support systemctl commands, making applying phpmyadmin more difficult than just using a VPS. 
