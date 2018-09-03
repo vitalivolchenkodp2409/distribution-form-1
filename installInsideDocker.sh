@@ -23,8 +23,7 @@ mkdir -p /var/www/laravel/bootstrap/cache;
 #cp -R * /var/www/laravel/
 service nginx restart; 
 
-mysql -u root mysql -e "update user set authentication_string=password(\"$mysqlpassword\") where user='root';"
-/etc/init.d/mysql restart
+
 echo 'command dissociated'; 
 
 cd ~;
