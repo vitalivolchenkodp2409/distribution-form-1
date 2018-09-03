@@ -11,7 +11,7 @@ If you have a domain name connected to your VPS, first edit the "installCerts.sh
 
 ## Installation on a Docker (Does not work currently due to systemctl problems..)
 ### Background 
-Dockers are basically mini VPS that you can run on any program. The Docker in this Repo runs an Ubuntu 16.04 instance. To rebuild (i.e. reset the instance), run ./build.sh. However after doing a bunch of crap i have learned docker does not support systemctl commands, making applying phpmyadmin difficult. 
+Dockers are basically mini VPS that you can run on any OS (windows, mac, etc). The Docker in this Repo runs an Ubuntu 16.04 instance. To rebuild (i.e. reset the instance), run ./build.sh. However after doing a bunch of crap i have learned docker does not support systemctl commands, making applying phpmyadmin more difficult than just using a VPS. 
 1. Install Docker on any OS (Windows, Mac, Ubuntu, etc)
 
 2. Clone the Github repo. Inside its directory, with root priviledges "./build.sh"; Please wait for it to install, if it looks like it has stopped for 4 minutes that is normal.
