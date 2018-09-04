@@ -2,13 +2,13 @@
 ## Installation on an Ubuntu 16.04 VPS / virtual box
 
 
-1. Run "git clone https://github.com/Project-Oblio/distribution-form.git; ./install.sh". There are some manual configurations needed:
+1. Run "git clone https://github.com/Project-Oblio/distribution-form.git; cd distribution-form; ./install.sh". There are some manual configurations needed:
 
 2. Inside the first file that opens, keep "server_name 127.0.0.1" for localhost/docker. Change to  "server_name {{public-ip-address}}" or "server_name {{domain name}}" if running on a VPS.
 
 3. Make the mysql password this: y78tyutftret. Keep entering it every time it asks. When asked, turn off all test accounts and test databases. When asked, install phpmyadmin as an apache server. 
 
-4. Upon completion to http://{{server_name}}/phpmyadmin. user "root" password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". 
+4. Upon completion to http://{{server_name}}/phpmyadmin. user "root" password "y78tyutftret". Click "Databases". Create a database called "msf" with collection "utf8_unicode_ci". 
 
 5. Run cd /var/www/laravel/; php artisan migrate
 
@@ -20,12 +20,13 @@
 
 3. In opened file, replace all instances of "poster.projectoblio.com" or "distribution.projectoblio.com" with your domain name. 
 
-### Adding OAuth2.0 token
+## Post-Installation Modifications 
+### Adding OAuth2.0 tokens for the API
 1. Create an account called admin@projectoblio.com.
 
 2. Assign it "Advanced" type account.
 
-3. You will now be able to add OAuth2.0 priviledges. 
+3. You will now be able to add OAuth2.0 priviledges at the bottom of the left sidebar. 
 
 ### Adding Google Auth login, recaptcha tokens, Twilio APIs...
 1. Check the ./laravel/.env file for Google Auth and Recaptcha tokens
