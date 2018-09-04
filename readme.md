@@ -18,7 +18,9 @@
 
 2. Run ./installCerts.sh from the cloned directory.
 
-3. In opened file, replace all instances of "poster.projectoblio.com" or "distribution.projectoblio.com" with your domain name. 
+3. In the opened file, replace all instances of "poster.projectoblio.com" or "distribution.projectoblio.com" with your domain name. There are at least 4 occurrences, use a find function 
+
+4. If you get an error, just run it a second time =)
 
 ## Post-Installation Modifications 
 ### Adding OAuth2.0 tokens for the API
