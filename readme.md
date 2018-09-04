@@ -2,26 +2,33 @@
 ## Installation on an Ubuntu 16.04 VPS / virtual box
 
 
-1. ./install.sh 
+1. Run ./install.sh from the cloned directory. There are two manual configurations needed:
 
-2. inside the file, keep "server_name 127.0.0.1" for localhost/docker. Change to  "server_name {{public-ip-address}}" or "server_name {{domain name}}" if running on a VPS.
+2. Inside the first file that opens, keep "server_name 127.0.0.1" for localhost/docker. Change to  "server_name {{public-ip-address}}" or "server_name {{domain name}}" if running on a VPS.
 
+3. Make the mysql password this: y78tyutftret. Keep entering it every time it asks. When asked, turn off all test accounts and test databases. When asked, install phpmyadmin as an apache server. 
 
-3. Make the mysql password this: y78tyutftret
+4. Upon completion to http://{{server_name}}/phpmyadmin. user "root" password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". 
 
-4. Go to http://{{server_name}}/phpmyadmin. user "root" password "y78tyutftret". Create a database called "msf" with collection "utf8_unicode_ci". Then, cd /var/www/laravel/; php artisan migrate
+5. Run cd /var/www/laravel/; php artisan migrate
 
 ### Adding SSL to VPS
 
-If you have a domain name connected to your VPS, first edit the "installCerts.sh" command to provide your domain and emails. Then run ./installCerts.sh
+1. First edit the "installCerts.sh" command to provide your domain and email. The domain name must be connected to your VPS's IP address. 
+
+2. Run ./installCerts.sh from the cloned directory.
+
+3. In opened file, replace all instances of "poster.projectoblio.com" or "distribution.projectoblio.com" with your domain name. 
 
 ### Adding OAuth2.0 token
-1. Create an account called admin@projectoblio.com
+1. Create an account called admin@projectoblio.com.
 
-2. You will now be able to add OAuth2.0 priviledges.
+2. Assign it "Advanced" type account.
+
+3. You will now be able to add OAuth2.0 priviledges. 
 
 ### Adding Google Auth login, recaptcha tokens, Twilio APIs...
 1. Check the ./laravel/.env file for Google Auth and Recaptcha tokens
 
-2. Twilio API key is located ? 
+2. Twilio API key is located where? 
 

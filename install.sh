@@ -47,10 +47,11 @@ chmod +x post-receive;
 
 # laravel install
 cd /var/www; 
-cp -r /distribution-form/laravel ./; 
 cd laravel; 
 git init; 
-git pull https://github.com/Shafayatul/Airdrop-Form;
+rm -rf bootstrap; 
+git clone https://github.com/Shafayatul/Airdrop-Form; cd Airdrop-Form; 
+mv * ../; mv .* ../; cd ../; 
 chown -R :www-data /var/www/laravel; 
 chmod -R 775 /var/www/laravel/storage; 
 chmod -R 775 /var/www/laravel/bootstrap/cache;
