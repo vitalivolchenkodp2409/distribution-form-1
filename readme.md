@@ -30,6 +30,8 @@
 
 3. You will now be able to add OAuth2.0 priviledges at the bottom of the left sidebar. Use the tokens it generates in your secondary site
 
+4. In laravel/public/oauth.php, update the api domain name with your domain
+
 ### Adding Google Auth login, recaptcha tokens, Twilio APIs...
 1. Check the ./laravel/.env file for Google Auth and Recaptcha tokens. Google Auth ("sign-in with gmail!") is currently disabled but can be re-enabled as needbe. 
 

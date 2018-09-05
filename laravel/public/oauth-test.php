@@ -1,10 +1,12 @@
 <?php
 session_start();
 
-$api_url = 'http://airdrop-form.test/';
+$api_url = 'http://distribution.projectoblio.com/';
 $auth_url = $api_url . 'oauth/';
 $client_id = 2;
-$redirect_uri = 'http://playground.test/oauth.php';
+$redirect_uri = 'http://dubs.projectoblio.com/oauth.php'; 
+## replace with your client 
+
 $client_secret = 'TsmyPvNCjdX2dH3MNlBg9oUVFurtqWCC8ijXAoUg';
 
 $isUserLoggedIn = false;
