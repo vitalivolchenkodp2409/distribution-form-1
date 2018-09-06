@@ -18,7 +18,7 @@
 
 2. Run ./installCerts.sh from the cloned directory.
 
-3. In the opened file, replace all instances of "poster.projectoblio.com" or "distribution.projectoblio.com" with your domain name. There are at least 4 occurrences, use a find function 
+3. In the opened file, replace all instances of "distribution.projectoblio.com" with your domain name. There are at least 4 occurrences, use a find function 
 
 4. If you get an error, just run it a second time =)
 
