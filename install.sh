@@ -52,9 +52,11 @@ cd laravel;
 rm -rf bootstrap; 
 #git clone https://github.com/Shafayatul/Airdrop-Form; cd Airdrop-Form; 
 mv ~/distribution-form/laravel/* ./; mv ~/distribution-form/laravel/.* ./; cd ../; 
-chown -R :www-data /var/www/laravel; chmod -R 775 /var/www/laravel/storage; chmod -R 775 /var/www/laravel/bootstrap/cache; composer install --no-dev; 
+chown -R :www-data /var/www/laravel; chmod -R 775 /var/www/laravel/storage; chmod -R 775 /var/www/laravel/bootstrap/cache; 
+cd /var/www/laravel; 
+composer install --no-dev; 
 cd laravel; 
- php artisan key:generate;
+php artisan key:generate;
 mysql -uroot -py78tyutftret -e "create database msf;";
 php artisan migrate; 
 
