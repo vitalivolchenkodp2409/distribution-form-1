@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Welcome to your Project Oblio Airdrop Dashboard
+                                Welcome to your Project Oblio Distribution Dashboard
                             </h2>
                         </div>
                         <div class="body">

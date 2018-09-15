@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Project Oblio Airdrop'),
+    'name' => env('APP_NAME', 'Project Oblio Distribution'),
 
     /*
     |--------------------------------------------------------------------------
