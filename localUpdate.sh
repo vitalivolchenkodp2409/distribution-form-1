@@ -5,9 +5,9 @@ if [ $# -eq 0 ] ; then
 fi
 
 branch=$1;
-git fetch all;
-git reset --hard $branch/master;
-git pull;
+git fetch;
+git reset --hard origin/master;
+git pull origin $branch;
 rsync -ravv ./laravel/* /var/www/laravel/
 cd /var/www/; 
 chown -R :www-data /var/www/laravel; 
