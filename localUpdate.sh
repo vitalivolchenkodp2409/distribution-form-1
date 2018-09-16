@@ -13,6 +13,15 @@ cd /var/www/;
 chown -R :www-data /var/www/laravel; 
 chmod -R 775 /var/www/laravel/storage; 
 chmod -R 775 /var/www/laravel/bootstrap/cache; 
-cd larvael;
+cd laravel;
 rm -rf vendor;
 composer install --no-dev
+php artisan key:generate;
+if [ $# -eq 2 ] ; then
+    echo 'Updating mysql'
+    mysql -uroot -py78tyutftret -e "drop database msf;" 
+    mysql -uroot -py78tyutftret -e "create database msf;"
+fi
+
+php artisan migrate; 
+php artisan serve --host "https://distribution.projectoblio.com"
