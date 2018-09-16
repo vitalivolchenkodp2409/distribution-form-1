@@ -6,4 +6,4 @@ fi
 echo $1
 branch=$1;
 gitup $branch "update";
-ssh -t root@poster.projectoblio.com "cd distribution-form; ./localUpdate.sh $branch";
+ssh -t root@distribution.projectoblio.com "cd distribution-form; ./localUpdate.sh $branch";
