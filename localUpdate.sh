@@ -6,7 +6,7 @@ fi
 
 branch=$1;
 git fetch;
-git reset --hard origin/master;
+#git reset --hard origin/master;
 git pull origin $branch;
 rsync -ravv ./laravel/* /var/www/laravel/
 cd /var/www/; 
