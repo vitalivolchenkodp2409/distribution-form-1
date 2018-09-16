@@ -1,6 +1,12 @@
 #!/bin/sh
+if [ $# -eq 0 ] ; then
+    echo 'Please enter a branch name'
+    exit 1
+fi
+
+branch=$1;
 git fetch all;
-git reset --hard origin/master;
+git reset --hard $branch/master;
 git pull;
 rsync -ravv ./laravel/* /var/www/laravel/
 cd /var/www/; 
