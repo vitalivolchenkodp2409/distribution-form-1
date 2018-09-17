@@ -42,7 +42,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-
+     public function username(){
+     	return 'name';
+     }
     /**
      * Redirect the user to the google authentication page.
      *
