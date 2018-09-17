@@ -16,6 +16,7 @@ chmod -R 775 /var/www/laravel/storage;
 chmod -R 775 /var/www/laravel/bootstrap/cache; 
 cd laravel;
 rm -rf vendor;
+rm -rf composer.lock; 
 composer dump-autoload;
 php artisan clear-compiled; 
 rm -rf bootstrap/cache/packages.php;
