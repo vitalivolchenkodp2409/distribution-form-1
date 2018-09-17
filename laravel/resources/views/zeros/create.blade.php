@@ -18,7 +18,9 @@
                         </div>
                         <div class="body">
                             <div> Here are the ethereum addresses</div>
-				{{ Ethereum::addresses() }} 
+				@foreach($addresses as $address)
+					 <td>{{ $address}}</td>
+				@endforeach
 			    
                             @if(Session::has('flash_message'))
                                 <div class="alert alert-success">

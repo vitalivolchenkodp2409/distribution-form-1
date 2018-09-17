@@ -15,6 +15,7 @@ class ZerosController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+	
     }    
     /**
      * Display a listing of the resource.
@@ -48,7 +49,7 @@ class ZerosController extends Controller
         $count = Zero::where('user_id', $user_id)->count();
 	$addresses=Ethereum::addresses();
         if ($count == 0) {
-            return view('zeros.create');
+            return view('zeros.create',compact('addresses'));
         }else{
             $zero = Zero::where('user_id', $user_id)->first();
             return redirect(route('zeros.show', array('id' => $zero->id)));
