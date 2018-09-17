@@ -21,7 +21,7 @@ composer dump-autoload;
 php artisan clear-compiled; 
 rm -rf bootstrap/cache/packages.php;
 rm -rf bootstrap/cache/services.php;
-composer install --no-dev
+composer install --no-scripts
 composer update; 
 php artisan key:generate;
 if [ $# -eq 2 ] ; then
