@@ -17,7 +17,10 @@
                             </h2>
                         </div>
                         <div class="body">
-                            
+                            @if($addresses)
+				<div> Here are the ethereum addresses</div>
+				{{$addresses}}
+			    @endif
                             @if(Session::has('flash_message'))
                                 <div class="alert alert-success">
                                     <strong>Success!</strong> {{ Session::get('flash_message') }}
