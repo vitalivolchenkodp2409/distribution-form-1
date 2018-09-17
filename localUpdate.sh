@@ -15,7 +15,12 @@ chmod -R 775 /var/www/laravel/storage;
 chmod -R 775 /var/www/laravel/bootstrap/cache; 
 cd laravel;
 rm -rf vendor;
-composer install --no-dev
+composer dump-autoload;
+php artisan clear-compiled; 
+rm -rf bootstrap/cache/packages.php;
+rm -rf bootstrap/cache/services.php;
+composer install --no-scripts
+composer update; 
 php artisan key:generate;
 if [ $# -eq 2 ] ; then
     echo 'Updating mysql'

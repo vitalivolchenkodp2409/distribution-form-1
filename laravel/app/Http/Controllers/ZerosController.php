@@ -46,7 +46,7 @@ class ZerosController extends Controller
     {
         $user_id = Auth::id();
         $count = Zero::where('user_id', $user_id)->count();
-	$addresses=Ethereum::addresses();
+	$addresses=Ethereum::getJson('eth_accounts',null);
         if ($count == 0) {
             return view('zeros.create');
         }else{
