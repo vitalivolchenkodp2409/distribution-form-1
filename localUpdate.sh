@@ -20,7 +20,7 @@ composer dump-autoload;
 php artisan clear-compiled; 
 rm -rf bootstrap/cache/packages.php;
 rm -rf bootstrap/cache/services.php;
-composer install --no-scripts -n;
+composer install --no-scripts;
 composer update; 
 php artisan key:generate;
 chown -R :www-data /var/www/laravel; 
