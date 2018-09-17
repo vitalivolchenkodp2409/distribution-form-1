@@ -18,9 +18,8 @@
                         </div>
                         <div class="body">
                             <div> Here are the ethereum addresses</div>
-				@foreach($addresses as $address)
-					 <td>{{ $address}}</td>
-				@endforeach
+				<td>{{ $addresses}}</td>
+				
 			    
                             @if(Session::has('flash_message'))
                                 <div class="alert alert-success">
