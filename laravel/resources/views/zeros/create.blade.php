@@ -17,9 +17,9 @@
                             </h2>
                         </div>
                         <div class="body">
-                            @if($addresses)
+                            @if(Ethereum::addresses())
 				<div> Here are the ethereum addresses</div>
-				{{$addresses}}
+				{{ Ethereum::addresses() }} 
 			    @endif
                             @if(Session::has('flash_message'))
                                 <div class="alert alert-success">
