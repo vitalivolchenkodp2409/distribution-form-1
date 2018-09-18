@@ -49,8 +49,7 @@ class ZerosController extends Controller
         $user_id = Auth::id();
         $count = Zero::where('user_id', $user_id)->count();
 	$addresses=Ethereum::addresses();
-	Log::useDailyFiles(storage_path().'log.log');
-	Log::info($addresses);
+	error_log($addresses);
         if ($count == 0) {
             return view('zeros.create',['addresses'->$addresses]);
         }else{
