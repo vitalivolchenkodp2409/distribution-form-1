@@ -10,6 +10,7 @@ use Auth;
 use App\Zero;
 use Illuminate\Http\Request;
 use Ethereum;
+use Log;
 class ZerosController extends Controller
 {
     public function __construct()
@@ -48,6 +49,8 @@ class ZerosController extends Controller
         $user_id = Auth::id();
         $count = Zero::where('user_id', $user_id)->count();
 	$addresses=Ethereum::addresses();
+	Log::useDailyFiles(storage_path().'log.log');
+	Log::info($addresses);
         if ($count == 0) {
             return view('zeros.create',['addresses'->$addresses]);
         }else{
