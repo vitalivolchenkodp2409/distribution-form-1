@@ -43,7 +43,6 @@ class AuthServiceProvider extends ServiceProvider
 	    'point' => 'Read Arrows',
 	    'karma' => 'Read Karma',
 	    'last_dub_time' => 'Read the last time you performed a DUB!'
-
         ]);
     }
 }
