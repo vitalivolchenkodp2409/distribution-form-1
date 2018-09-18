@@ -16,7 +16,7 @@ chmod -R 775 /var/www/laravel/storage;
 chmod -R 775 /var/www/laravel/bootstrap/cache; 
 cd laravel;
 
-if [ $# -eq 2 ] ; then
+if [ $# -eq 2 ] || [ $# -eq 3 ] ; then
 rm -rf vendor;
 composer dump-autoload;
 php artisan clear-compiled; 
@@ -28,10 +28,12 @@ php artisan key:generate;
 chown -R :www-data /var/www/laravel; 
 chmod -R 775 /var/www/laravel/storage; 
 chmod -R 775 /var/www/laravel/bootstrap/cache; 
+	if [ $# -eq 3 ] ; then
 
-    echo 'Updating mysql'
-    mysql -uroot -py78tyutftret -e "drop database msf;" 
-    mysql -uroot -py78tyutftret -e "create database msf;"
+    	echo 'Updating mysql'
+   	 mysql -uroot -py78tyutftret -e "drop database msf;" 
+    	mysql -uroot -py78tyutftret -e "create database msf;"
+	fi
 fi
 
 php artisan migrate; 
