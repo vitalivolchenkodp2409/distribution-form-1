@@ -78,7 +78,7 @@ class UsersController extends Controller
             'password_confirmation' => 'required_with:password|same:password|min:6'
         ]);
         
-         $input['email']=$request['email'];
+         $input['name']=$request['name'];
          $input['password']=$request['password'];
          
         $user = User::create(
@@ -95,30 +95,16 @@ class UsersController extends Controller
            // if(auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
                 Mail::to($user->email)->send(new Welcome());
                
-                $fields = array(
-                        'email' => urlencode($input['email']),
-                        'password' => urlencode($input['password']),                       
-                );
-                $fields_string="";
-                //url-ify the data for the POST
-                foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-                rtrim($fields_string, '&');
+               $fields = http_build_query($input);
+               
+//                $ch = curl_init($cookie);
+//                curl_setopt($ch, CURLOPT_POST, true);
+//                curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+//                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//                curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+//                $result = curl_exec($ch);
 
-                //open connection
-                $ch = curl_init();
-
-                //set the url, number of POST vars, POST data
-                curl_setopt($ch,CURLOPT_URL, $cookie);
-                curl_setopt($ch,CURLOPT_POST, count($fields));
-                curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
-
-                //execute post
-                $result = curl_exec($ch);
-
-                //close connection
-                curl_close($ch);
-
-                return redirect()->away($cookie);
+                return redirect()->away($cookie.'?'.$fields);
            // }
         }
         
