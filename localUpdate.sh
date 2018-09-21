@@ -22,9 +22,11 @@ composer dump-autoload;
 php artisan clear-compiled; 
 rm -rf bootstrap/cache/packages.php;
 rm -rf bootstrap/cache/services.php;
+php artisan route:cache;
 composer install --no-scripts;
 composer update; 
 php artisan key:generate;
+
 chown -R :www-data /var/www/laravel; 
 chmod -R 775 /var/www/laravel/storage; 
 chmod -R 775 /var/www/laravel/bootstrap/cache; 

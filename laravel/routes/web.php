@@ -36,4 +36,4 @@ Route::post('/phone/validation', 'ThreesController@submit_validation');
 Route::resource('threes', 'ThreesController');
 Route::resource('fours', 'FoursController');
 Route::resource('fives', 'FivesController');
-Route::resource('anonymouses', 'AnonymousesController');
+//Route::resource('anonymouses', 'AnonymousesController');
