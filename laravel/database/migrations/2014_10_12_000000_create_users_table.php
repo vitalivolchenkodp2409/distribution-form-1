@@ -11,6 +11,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+    
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -20,6 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('type')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('arrows')->default('0')->nullable();
+            $table->string('karma')->default('0')->nullable();
+            $table->string('last_dub_time')->default('0')->nullable();
             $table->string('point')->default('0')->nullable();
             $table->integer('form_level')->default(0)->nullable();
             $table->string('ip')->nullable();

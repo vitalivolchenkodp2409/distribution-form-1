@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -13,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\Facades\Cookie;
+use SoapClient;
 
 
 class UsersController extends Controller
@@ -26,15 +26,26 @@ class UsersController extends Controller
             'password_confirmation' => 'required_with:password|same:password|min:6'
         ]);
 
+        $avatar=$this->getavatar($request->input('email'));
+        
+        if(empty($avatar)){
+            $avatar=$request->input('avatar');
+        }
+        
+        //dd($avatar);
+        //$avatar="aa";
+        
         $user = User::create(
             [
              'name'             => $request->input('name'),
              'email'            => $request->input('email'),
              'password'         => bcrypt($request->input('password')),
-             'company'          => $request->input('company'),
-             'contact_number'   => $request->input('contact_number'),
-             'ip'               => $request->ip()
-            ]);
+            // 'company'          => $request->input('company'),
+            // 'contact_number'   => $request->input('contact_number'),
+             'ip'               => $request->ip(),
+             'avatar'           => $avatar,   
+        ]);
+        
         if($user){
             if(auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
                 Mail::to($user->email)->send(new Welcome());
@@ -45,6 +56,32 @@ class UsersController extends Controller
         Session::flash('success','New user successfully created.');
         return back();
     }
+    
+    public function getavatar($email){
+        $image="";
+
+        try{
+        $client = new SoapClient("http://www.avatarapi.com/avatar.asmx?wsdl");
+        
+        $params = array (
+        "email" => $email,
+        "username" => env('AVATAR_UNAME'),
+        "password" => env('AVATAR_PASSWORD')
+        );
+        
+        $response = $client->__soapCall('GetProfile', array($params));
+        if(isset($response->GetProfileResult->Image)){
+            $image=$response->GetProfileResult->Image;
+        }
+       // echo "<pre>";
+        return $image;
+        }
+        catch(\Exception $e){
+          return $image; 
+        }
+        //print_r($response->GetProfileResult->Image);
+    }
+    
     
     public function externalsignup(Request $request){
         // $cookie = $request->cookie('redirect_back');

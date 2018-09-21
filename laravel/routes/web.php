@@ -29,6 +29,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/select-type', 'HomeController@select_type');
 Route::get('/save-type/{type}', 'HomeController@save_type');
 
+Route::get('/select-avatar', 'HomeController@select_avatar');
+Route::post('/save-avatar', 'HomeController@save_avatar');
+
 Route::get('auth/google', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/google/callback', 'Auth\LoginController@handleProviderCallback');
 Route::resource('zeros', 'ZerosController');
