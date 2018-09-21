@@ -17,12 +17,6 @@ Route::get('/', function () {
 //only guests can access these routes
 
 
-Route::group(['middleware' => ['guest']], function () {
-    Route::post('/signup', 'UsersController@store');
-    Route::get('externalsignup','UsersController@externalsignup');
-    Route::post('/externalsignup', 'UsersController@externalstore');
-});
-
 Auth::routes();
 Route::get('/oauth-clients', 'OauthController@index');
 Route::get('/home', 'HomeController@index')->name('home');
