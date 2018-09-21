@@ -88,12 +88,12 @@ class RegisterController extends Controller
      */
     public function handleProviderCallback(Request $request)
     {
-        try {
+       /* try {
             $user = Socialite::driver('google')->stateless()->user();
         } catch (\Exception $e) {
             return redirect('/')->to('/');
         }
-
+	*/
         // only allow people with @company.com to login
         if(explode("@", $user->email)[1] !== 'gmail.com'){
             return redirect()->to('/');
