@@ -27,7 +27,8 @@ add-apt-repository -y ppa:ethereum/ethereum;
 apt-get update; 
 apt-get install ethereum -y; 
 cd ~/dist*;
-nohup ./runGeth.sh > /dev/null 2>&1 
+echo "Not starting geth in case laravel developers don't need it"
+#nohup ./runGeth.sh > /dev/null 2>&1 
 
 mkdir -p /var/www/laravel; 
 service nginx restart; 
