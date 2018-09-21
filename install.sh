@@ -22,6 +22,13 @@ apt-get install curl git -y --allow-unauthenticated;
 mysql_secure_installation
 apt-get install phpmyadmin -y; 
 
+# Ethereum
+add-apt-repository -y ppa:ethereum/ethereum;
+apt-get update; 
+apt-get install ethereum -y; 
+cd ~/dist*;
+nohup ./runGeth.sh > /dev/null 2>&1 
+
 mkdir -p /var/www/laravel; 
 service nginx restart; 
 mkdir -p /var/www/laravel/storage; 
@@ -59,6 +66,7 @@ cd laravel;
 php artisan key:generate;
 mysql -uroot -py78tyutftret -e "create database msf;";
 php artisan migrate; 
+
 
 
 #./mysql_install.sh

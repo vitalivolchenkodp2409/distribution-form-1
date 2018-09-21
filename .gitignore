@@ -1,1 +1,4 @@
-/laravel/nbproject/private/
+vendor
+./ethdata/geth/chaindata
+./ethdata/geth/nodes
+./laravel/vendor;

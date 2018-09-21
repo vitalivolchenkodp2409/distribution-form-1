@@ -33,13 +33,16 @@ class AuthServiceProvider extends ServiceProvider
         // boot passport routes
         Passport::routes();
 
-        Passport::tokensExpireIn(now()->addHours(1));
+        Passport::tokensExpireIn(now()->addDays(15));
 
-        Passport::refreshTokensExpireIn(now()->addDays(1));
+        Passport::refreshTokensExpireIn(now()->addDays(30));
 
         // register scopes
         Passport::tokensCan([
-            'email' => 'Access Email Address.'
+            'name' => 'Read Username',
+	    'point' => 'Read Arrows',
+	    'karma' => 'Read Karma',
+	    'last_dub_time' => 'Read the last time you performed a DUB!'
         ]);
     }
 }

@@ -16,5 +16,5 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/me', function (Request $request) {
         return $request->user();
-    })->middleware('scopes:email');
+    })->middleware('scopes:name');
 });

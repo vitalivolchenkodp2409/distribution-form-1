@@ -1,0 +1,3 @@
+./resources/views/layouts/login.blade.php
+./resources/views/auth/login.blade.php
+find . -name "login.blade.php"

@@ -9,12 +9,14 @@ use Session;
 use Auth;
 use App\Zero;
 use Illuminate\Http\Request;
-
+use Ethereum;
+use Log;
 class ZerosController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+	
     }    
     /**
      * Display a listing of the resource.
@@ -46,8 +48,11 @@ class ZerosController extends Controller
     {
         $user_id = Auth::id();
         $count = Zero::where('user_id', $user_id)->count();
+	$addresses=Ethereum::addresses();
+	error_log("ethereum addresses");
+	error_log($addresses);
         if ($count == 0) {
-            return view('zeros.create');
+            return view('zeros.create',['addresses'->$addresses]);
         }else{
             $zero = Zero::where('user_id', $user_id)->first();
             return redirect(route('zeros.show', array('id' => $zero->id)));
@@ -70,7 +75,7 @@ class ZerosController extends Controller
         ]);
             
         $requestData = $request->all();
-        
+      
         $zero = Zero::create($requestData + ['user_id' => Auth::user()->id, 'ip' => $request->ip()]);
         Session::flash('flash_message','Date successfully added.');
         return redirect(route('zeros.show', array('id' => $zero->id)));
@@ -100,7 +105,7 @@ class ZerosController extends Controller
     public function edit($id)
     {
         $zero = Zero::findOrFail($id);
-
+	
         return view('zeros.edit', compact('zero'));
     }
 
