@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('guest');
 //only guests can access these routes
+//only guests can access these routes
+Route::group(['middleware' => ['guest']], function () {
+    Route::post('/signup', 'UsersController@store');
+});
 
 
 Auth::routes();
