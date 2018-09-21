@@ -5,6 +5,7 @@ if [ $# -eq 0 ] ; then
 fi
 branch=$1;
 comment=$2;
+chmod 400 sshKey;
 if [ $# -eq 1 ] ; then
     echo 'Please enter a comment, you entered this for branch name:'
 	echo $1;
