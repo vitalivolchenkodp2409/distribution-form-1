@@ -30,9 +30,9 @@ chmod -R 775 /var/www/laravel/storage;
 chmod -R 775 /var/www/laravel/bootstrap/cache; 
 	if [ $# -eq 3 ] ; then
 
-    	echo 'Updating mysql'
-   	 mysql -uroot -py78tyutftret -e "drop database msf;" 
-    	mysql -uroot -py78tyutftret -e "create database msf;"
+    		echo 'Restoring mysql backup'
+   		mysql -uroot -panyPassword -e "drop database msf;" 
+	    	mysql -uroot -panyPassword msf < /root/distribution-form/backupDatabases/databaseBackup1;
 	fi
 fi
 

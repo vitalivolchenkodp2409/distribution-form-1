@@ -65,7 +65,7 @@ cd /var/www/laravel;
 composer install --no-dev; 
 cd laravel; 
 php artisan key:generate;
-mysql -uroot -py78tyutftret -e "create database msf;";
+mysql -uroot -panyPassword -e "create database msf;";
 php artisan migrate; 
 
 
