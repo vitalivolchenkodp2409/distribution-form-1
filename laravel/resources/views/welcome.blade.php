@@ -213,7 +213,7 @@
                                             <form id="register-form" action="{{ url('/signup') }}" method="post" role="form" style="display: none;">
 
                                                 {{ csrf_field() }}
-
+                                                 <input type="hidden" name="avatar" value="" id="avatar" >     
                                                 <div class="form-group">
                                                     <input type="text" name="name" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                                 </div>
@@ -257,19 +257,34 @@
             
         </div>
 
-
         <!-- Javascript -->
         <script src="{{ URL::asset('assets/js/jquery-1.11.1.min.js')}}"></script>
         <script src="{{ URL::asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{ URL::asset('assets/js/jquery.backstretch.min.js')}}"></script>
         <script src="{{ URL::asset('assets/js/scripts.js')}}"></script>
-        
-        <!--[if lt IE 10]>
-            <script src="{{ URL::asset('assets/js/placeholder.js')}}"></script>
-        <![endif]-->
-        <script type="text/javascript">
-            $(function() {
+                <script src="{{ URL::asset('assets/js/pnglib.js')}}"></script>
 
+        <script src="{{ URL::asset('assets/js/identicon.js')}}"></script>
+
+       
+        <script type="text/javascript">
+             
+              function randomString(length, chars) {
+                var result = '';
+                for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+                return result;
+              }
+           
+              $(function() {
+              
+                var hash = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');// 15+ hex chars
+
+                var data = new Identicon(hash, 48).toString();
+                var avatar='data:image/png;base64,'+data;
+                //document.write('<img  src="' + avatar + '">');
+                  
+               $("#avatar").val(avatar);
+            
                 $('#login-form-link').click(function(e) {
                     $("#login-form").delay(100).fadeIn(100);
                     $("#register-form").fadeOut(100);
@@ -277,6 +292,7 @@
                     $(this).addClass('active');
                     e.preventDefault();
                 });
+                
                 $('#register-form-link').click(function(e) {
                     $("#register-form").delay(100).fadeIn(100);
                     $("#login-form").fadeOut(100);
