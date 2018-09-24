@@ -1,4 +1,5 @@
 vendor
 ./ethdata/geth/chaindata
 ./ethdata/geth/nodes
+./ethdata/geth/ethash
 ./laravel/vendor
