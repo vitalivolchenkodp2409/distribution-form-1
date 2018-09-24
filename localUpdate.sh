@@ -34,6 +34,7 @@ chmod -R 775 /var/www/laravel/bootstrap/cache;
 
     		echo 'Restoring mysql backup'
    		mysql -uroot -panyPassword -e "drop database msf;" 
+		mysql -uroot -panyPassword -e "create database msf;" 
 	    	mysql -uroot -panyPassword msf < /root/distribution-form/backupDatabases/databaseBackup1.sql;
 	fi
 fi
