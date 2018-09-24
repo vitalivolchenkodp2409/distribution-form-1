@@ -183,7 +183,7 @@
                                             <form id="login-form" action="{{ route('login') }}" method="post" role="form" style="display: block;">
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
-                                                    <input type="email" name="email" id="username" tabindex="1" class="form-control" placeholder="  Email" value="">
+                                                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="  Username" value="">
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">

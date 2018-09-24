@@ -62,7 +62,7 @@ class LoginController extends Controller
      */
     public function handleProviderCallback(Request $request)
     {
-        try {
+        /*try {
             $user = Socialite::driver('google')->stateless()->user();
         } catch (\Exception $e) {
             return redirect('/')->to('/');
@@ -71,9 +71,10 @@ class LoginController extends Controller
         // only allow people with @company.com to login
         if(explode("@", $user->email)[1] !== 'gmail.com'){
             return redirect()->to('/');
-        }
+        }*/
+	
         // check if they're an existing user
-        $existingUser = User::where('email', $user->email)->first();
+        $existingUser = User::where('name', $user->name)->first();
         if($existingUser){
             // log them in
             auth()->login($existingUser, true);
