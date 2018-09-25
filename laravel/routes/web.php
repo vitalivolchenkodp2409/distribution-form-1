@@ -15,13 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('guest');
 //only guests can access these routes
-
-
+//only guests can access these routes
 Route::group(['middleware' => ['guest']], function () {
     Route::post('/signup', 'UsersController@store');
-    Route::get('externalsignup','UsersController@externalsignup');
-    Route::post('/externalsignup', 'UsersController@externalstore');
 });
+
 
 Auth::routes();
 Route::get('/oauth-clients', 'OauthController@index');
@@ -43,4 +41,4 @@ Route::post('/phone/validation', 'ThreesController@submit_validation');
 Route::resource('threes', 'ThreesController');
 Route::resource('fours', 'FoursController');
 Route::resource('fives', 'FivesController');
-Route::resource('anonymouses', 'AnonymousesController');
+//Route::resource('anonymouses', 'AnonymousesController');

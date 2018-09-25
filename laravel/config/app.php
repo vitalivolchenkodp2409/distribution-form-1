@@ -165,7 +165,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
-
+	Andskur\Laracrypto\LaracryptoServiceProvider::class
     ],
 
     /*
@@ -221,6 +221,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+	'Ethereum' =>  Andskur\Laracrypto\Ethereum\EthereumFacade::class
     ],
 
 ];

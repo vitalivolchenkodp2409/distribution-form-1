@@ -162,7 +162,7 @@
                                             <a href="#" id="login-form-link">Login</a>
                                         </div>
                                         <div class="col-xs-6">
-                                            <a href="#" class="active" id="register-form-link">Register</a>
+                                            <a href="#" class="active" id="register-form-link2">Register</a>
                                         </div>
                                     </div>
                                     <hr>
