@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\Facades\Cookie;
 use SoapClient;
+use App\Monsterid\Monsterid;
 
 
 class UsersController extends Controller
@@ -26,7 +27,8 @@ class UsersController extends Controller
             'password_confirmation' => 'required_with:password|same:password|min:6'
         ]);
 
-        $avatar=$this->getavatar($request->input('email'));
+        // $avatar=$this->getavatar($request->input('email'));
+        $avatar = Monsterid::build_monster($request->input('email'), 100, time().rand(1111,9999)); 
         
         if(empty($avatar)){
             $avatar=$request->input('avatar');

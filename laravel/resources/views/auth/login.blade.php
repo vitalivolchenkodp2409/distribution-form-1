@@ -12,10 +12,10 @@
                 <i class="material-icons">person</i>
             </span>
             <div class="form-line">
-                <input type="email" class="form-control"  placeholder="Email" value="{{ old('email') }}"  id="email" name="email"  required autofocus>
-                @if ($errors->has('email'))
+                <input type="text" class="form-control" placeholder="Username" value="{{ old('name') }}"  id="name" name="name"  required autofocus>
+                @if ($errors->has('name'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>{{ $errors->first('name') }}</strong>
                     </span>
                 @endif
             </div>

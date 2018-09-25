@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Project Oblio Distribution</title>
+    <title>Project Oblio Airdrop</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -36,57 +36,74 @@
 
 
             <div class="row">
-                <h4 class="text-center">Choose Avatar.</h4>
+                <h4 class="text-center">Choose how you’ll collect Arrows (ARR), the currency used on Project Oblio, <br>and <b>Karma</b>, a metric of uniqueness used for voting.</h4>
                 <br>
                 <hr>
-                <div class="col-xs-12 col-md-12">
-                    <form id="avatar-form" action="{{ url('/save-avatar') }}" method="post" role="form" enctype="multipart/form-data">
-
-                        {{ csrf_field() }}
-                        <center>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
-                            <input type="file" name="avatar" id="avatar" tabindex="1" class="form-control" onChange="AjaxUploadImage(this)" />
-                         @if ($errors->has('avatar'))
-                            <span class="invalid-feedback text-red" role="alert">
-                                <strong>{{ $errors->first('avatar') }}</strong>
-                            </span>
-                        @endif
+                <div class="col-xs-12">
+                    <a href="{{url('/save-type/anonymous')}}">
+                        <div class="info-box bg-cyan hover-expand-effect">
+                            <div class="icon">
+                                <i class="material-icons">person_outline</i>
+                            </div>
+                            <div class="content">
+                                <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20">ANONYMOUS</div>
+                                <div class="text">
+                                    <br>
+                                    2.5 mETH to ARR contribution rate.
+                                    <br>
+				    Only an Ethereum address is required.
                                 </div>
+                                
                             </div>
                         </div>
-                                
-                        <div class="form-group">
-                             <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
-                        <?php
-                        if (!empty($user->avatar) && $user->avatar != "") {
-                        ?>
-                        <br><img id="DisplayImage" src="{{ $user->avatar }}" name="img" id="img" width="150" style="padding-bottom:5px" >
-                        <?php
-                        }
-                        else{
-                            echo '<br><img id="DisplayImage" src="" width="150" style="display: none;"/>';
-                        } 
-                        ?>
-                         </div>
-                       </div>
-                                
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="submit"  style="background-color:#39BCD5;color:#ffffff" id="avatar-submit" tabindex="4" class="form-control btn btn-login" value="Update Now">
-                                </div>
-                            </div>
-                        </div>
-                    </center>
-                   </form>
+                    </a>
                 </div>
-                
+                <div class="col-xs-12">
+                    <a href="{{url('/save-type/simple')}}">
+                        <div class="info-box bg-cyan hover-expand-effect">
+                            <div class="icon">
+                                <i class="material-icons">accessibility_new</i>
+                            </div>
+                            <div class="content">
+                                <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20">SIMPLE</div>
+                                <div class="text">
+                                    <br>
+						Earn 300 ARR and 10 Karma for posting on IRT.
+                                    <br> Phone verification and DUBs required.
+                                
+                            </div>
+                        </div>
+                    </a>
+                </div>
+		</div>
+                <div class="col-xs-12">
+                    <a href="{{url('/save-type/advance')}}">
+                        <div class="info-box bg-cyan hover-expand-effect">
+                            <div class="icon">
+                                <i class="material-icons">how_to_reg</i>
+                            </div>
+                            <div class="content">
+                                <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20">ADVANCED</div>
+                                <div class="text"><br>
+					Earn ARR and Karma for your Insta, Snap, and Reddit accounts.
+					
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+	
+                </div>
+
             </div>
-          </div>
+		<h5 class="text-center">You'll be able to change your account type later.</h5>
+
+
+
+
+
+
+
+            </div>
 
         </div>
     </div>
@@ -106,38 +123,6 @@
     <!-- Custom Js -->
     <script src="{{ URL::asset('js/admin.js') }}"></script>
     <script src="{{ URL::asset('js/pages/examples/sign-in.js') }}"></script>
-    
-    <script>
-       
-        function AjaxUploadImage(obj,id){
-
-        var file = obj.files[0];
-        var imagefile = file.type;
-        var match = ["image/jpeg", "image/png", "image/jpg"];
-        if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2])))
-        {
-           // $('#previewing'+URL).attr('src', 'noimage.png');
-            //alert("Please Select A valid Image File.Only jpeg, jpg and png Images type allowed");
-            //$("#message").html("<p id='error'>Please Select A valid Image File</p>" + "<h4>Note</h4>" + "<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
-            $('#DisplayImage').attr('src',"");
-            alert('Invalid file type.Please select image only');
-            return false;
-        } else{
-            var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(obj.files[0]);
-        }
-    }
-
-    function imageIsLoaded(e) {
-
-        $('#DisplayImage').css("display", "block");
-        $('#DisplayImage').attr('src', e.target.result);
-        $('#DisplayImage').attr('width', '150');
-    }
-    
- </script>
-    
 </body>
 
 </html>

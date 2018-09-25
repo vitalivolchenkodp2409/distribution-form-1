@@ -31,6 +31,7 @@ Route::get('/save-type/{type}', 'HomeController@save_type');
 
 Route::get('/select-avatar', 'HomeController@select_avatar');
 Route::post('/save-avatar', 'HomeController@save_avatar');
+Route::post('/save-user-avatar', 'HomeController@saveUserAvatar');
 
 Route::get('auth/google', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/google/callback', 'Auth\LoginController@handleProviderCallback');

@@ -279,11 +279,11 @@
               
                 var hash = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');// 15+ hex chars
 
-                var data = new Identicon(hash, 48).toString();
-                var avatar='data:image/png;base64,'+data;
-                //document.write('<img  src="' + avatar + '">');
+               //  var data = new Identicon(hash, 48).toString();
+               //  var avatar='data:image/png;base64,'+data;
+               //  //document.write('<img  src="' + avatar + '">');
                   
-               $("#avatar").val(avatar);
+               // $("#avatar").val(avatar);
             
                 $('#login-form-link').click(function(e) {
                     $("#login-form").delay(100).fadeIn(100);

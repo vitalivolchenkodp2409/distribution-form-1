@@ -87,6 +87,28 @@
                                             </tbody>
                                           </table>
                                         </div>
+                                        <div class=" col-md-3 col-lg-3 "> </div>
+                                        <div class=" col-md-9 col-lg-9 "> 
+                                          @if (session('success'))
+                                              <div class="alert alert-success">
+                                                  {{ session('success') }}
+                                              </div>
+                                          @endif
+                                          @if (session('error'))
+                                              <div class="alert alert-danger">
+                                                  {{ session('error') }}
+                                              </div>
+                                          @endif
+
+                                          <form action="/save-user-avatar" method="post" enctype="multipart/form-data">
+                                            {{ csrf_field() }}
+                                            <label class="btn btn-default" for="user_avatar">
+                                              <input name="user_avatar" id="user_avatar" type="file" style="display:none;">
+                                              <span class="user-avatar-file-name">Choose File...</span>
+                                            </label>
+                                            <input type="submit" value="Upload" class="btn btn-primary">
+                                          </form>
+                                        </div>
                                       </div>
                                     </div>
                                    </div>
@@ -98,4 +120,8 @@
             <!-- #END# Input -->
         </div>
     </section>
+@endsection
+
+@section('footer-script')
+  <script type="text/javascript" src="js/home.js" charset="UTF-8"></script>
 @endsection

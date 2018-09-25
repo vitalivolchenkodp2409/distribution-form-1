@@ -43,7 +43,7 @@ class LoginController extends Controller
     }
 
      public function username(){
-     	return 'name';
+     	 return 'name';
      }
     /**
      * Redirect the user to the google authentication page.
