@@ -143,7 +143,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Project Oblio-123</strong> Distribution</h1>
+                            <h1><strong>Project Oblio</strong> Distribution</h1>
                             <br>
                             {{-- <div class="description">
                                 <p>
