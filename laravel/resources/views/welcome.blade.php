@@ -143,7 +143,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Project Oblio</strong> Distribution</h1>
+                            <h1><strong>Project Oblio-123</strong> Distribution</h1>
                             <br>
                             {{-- <div class="description">
                                 <p>
@@ -183,7 +183,7 @@
                                             <form id="login-form" action="{{ route('login') }}" method="post" role="form" style="display: block;">
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
-                                                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="  Username" value="">
+                                                    <input type="text" name="name" id="username" tabindex="1" class="form-control" placeholder="  Username" value="">
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
