@@ -183,7 +183,7 @@
                                             <form id="login-form" action="{{ route('login') }}" method="post" role="form" style="display: block;">
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
-                                                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="  Username" value="">
+                                                    <input type="text" name="name" id="username" tabindex="1" class="form-control" placeholder="  Username" value="">
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
@@ -267,7 +267,23 @@
             <script src="{{ URL::asset('assets/js/placeholder.js')}}"></script>
         <![endif]-->
         <script type="text/javascript">
-            $(function() {
+             
+              function randomString(length, chars) {
+                var result = '';
+                for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+                return result;
+              }
+           
+              $(function() {
+              
+                var hash = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');// 15+ hex chars
+
+               //  var data = new Identicon(hash, 48).toString();
+               //  var avatar='data:image/png;base64,'+data;
+               //  //document.write('<img  src="' + avatar + '">');
+                  
+               // $("#avatar").val(avatar);
+            
                 $('#login-form-link').click(function(e) {
                     $("#login-form").delay(100).fadeIn(100);
                     $("#register-form").fadeOut(100);

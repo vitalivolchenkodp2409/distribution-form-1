@@ -12,6 +12,7 @@ use App\Two;
 use App\Three;
 use App\Four;
 use App\Five;
+use Validator;
 class HomeController extends Controller
 {
     /**
@@ -49,6 +50,40 @@ class HomeController extends Controller
         $this->recount($type);
         return redirect()->to('/home');
     }
+
+    public function select_avatar()
+    {
+     $data['user']=Auth::user();
+     return view('selectAvatar',$data);
+    }
+
+    public function save_avatar(Request $request)
+    {
+        $this->validate($request, [
+                   'avatar' => 'required|mimes:jpeg,jpg,png', //only allow this type extension file.
+           ]);
+
+        $user=User::find(Auth::user()->id);
+
+        if($photo = $request->file('avatar'))
+        {
+          $root = base_path().'public/images/';
+          dd($root);
+          $name = str_random(20).".".$photo->getClientOriginalExtension();
+            if (!file_exists($root)) {
+                mkdir($root, 0777, true);
+            }
+            $image_path = 'images/'.$name;
+            $photo->move($root,$name);
+            $input['avatar'] = $image_path;
+            $user->update($input);
+        }
+
+
+
+        return redirect()->to('/home');
+    }
+
 
     public function recount($type)
     {
@@ -90,6 +125,31 @@ class HomeController extends Controller
             }
         }
         
+    }
+
+    public function saveUserAvatar(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('error',$validator->errors()->first());            
+        }
+
+        $user_avatar = $request->file('user_avatar');
+
+        $imagename = time().rand(1111,9999).'.'.$user_avatar->getClientOriginalExtension();
+
+        $destinationPath = public_path('/images/user');
+        $user_avatar->move($destinationPath, $imagename);
+
+        $user = Auth::user();
+        $update_user = User::find($user->id);
+        $update_user->avatar = 'images/user/'.$imagename;
+        $update_user->save();
+
+        return back()->with('success','User avatar change successfully.');
     }
 
 }

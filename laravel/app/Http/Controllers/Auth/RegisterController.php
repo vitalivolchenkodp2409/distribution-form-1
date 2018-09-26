@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Socialite;
+use App\Monsterid\Monsterid;
+
 
 class RegisterController extends Controller
 {
@@ -63,10 +66,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $avatar = Monsterid::build_monster($data['email'], 100, time().rand(1111,9999)); 
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'avatar' => $avatar
         ]);
     }
 
