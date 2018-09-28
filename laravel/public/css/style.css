@@ -8051,3 +8051,15 @@ html.ie11 .bs-searchbox .form-control {
   border-radius: 10px;
 
 }
+
+.user-avatar-shadow-red {
+  box-shadow: 3px 3px 10px #dc3545;
+}
+
+.user-avatar-shadow-green {
+  box-shadow: 3px 3px 10px #28a745;
+}
+
+.user-avatar-shadow-orange {
+  box-shadow: 3px 3px 10px #ffc107;
+}

@@ -31,9 +31,9 @@
                                       <div class="row">
                                         <div class="col-md-3 col-lg-3 " align="center"> 
                                             @if($current_user->avatar == null)
-                                                <img alt="User Pic" src="{{ URL::asset('images/user.png') }}" class="img-circle img-responsive"> 
+                                                <img alt="User Pic" src="{{ URL::asset('images/user.png') }}" class="img-circle img-responsive {{ $current_user->karma_color }}"> 
                                             @else
-                                                <img alt="User Pic" src="{{ $current_user->avatar }}" class="img-circle img-responsive"> 
+                                                <img alt="User Pic" src="{{ $current_user->avatar }}" class="img-circle img-responsive {{ $current_user->karma_color }}"> 
                                             @endif
                                         </div>
 

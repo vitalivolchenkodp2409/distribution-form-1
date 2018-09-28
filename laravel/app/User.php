@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
+    protected $appends = array('karma_color');
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,4 +29,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getKarmaColorAttribute()
+    {
+        return self::getUserAvatarColorByKaram($this->point);  
+    }
+
+    public static function getUserAvatarColorByKaram($karma)
+    {
+        $min = config('constant.KARMA_COLOR_MIN_VALUE');
+        $max = config('constant.KARMA_COLOR_MAX_VALUE');
+
+        if ($karma < $min) {
+            return "user-avatar-shadow-red";
+        } else if ($karma >= $min && $karma <= $max) {
+            return "user-avatar-shadow-orange";
+        } else if ($karma > $max) {
+            return "user-avatar-shadow-green";
+        }
+
+        return "";
+    }
 }
