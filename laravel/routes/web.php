@@ -15,16 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('guest');
 
-Route::get('/test', function () {
-    dd('aaaaa');
-})->middleware('guest');
-
 //only guests can access these routes
 //only guests can access these routes
 Route::group(['middleware' => ['guest']], function () {
     Route::post('/signup', 'UsersController@store');
     Route::get('externalsignup','UsersController@externalsignup');
-    Route::post('/externalsignup', 'UsersController@externalstore'); 
+	Route::post('/externalsignup', 'UsersController@externalstore'); 
 });
 
 
