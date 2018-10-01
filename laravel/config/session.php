@@ -122,10 +122,11 @@ return [
     |
     */
 
-    'cookie' => env(
+	'cookie'=>'oblio_session',
+    /*'cookie' => env(
         'SESSION_COOKIE',
         str_slug(env('APP_NAME', 'laravel'), '_').'_session'
-    ),
+    ),*/
 
     /*
     |--------------------------------------------------------------------------
@@ -151,7 +152,8 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
+//    'domain' => env('SESSION_DOMAIN', null),
+    'domain' => env('.projectoblio.com', null),
 
     /*
     |--------------------------------------------------------------------------
