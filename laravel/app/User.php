@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\SocialProvider;
+use App\Photo;
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
@@ -49,5 +50,18 @@ class User extends Authenticatable
         }
 
         return "";
+    }
+
+	 public function socialProviders()
+    {
+        return $this->hasMany(SocialProvider::class);
+    }
+    public function photo()
+    {
+        return $this->hasMany(Photo::class);
+    }
+    public function friends()
+    {
+        return $this->hasMany(Friends::class);
     }
 }

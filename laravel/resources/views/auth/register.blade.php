@@ -63,5 +63,13 @@
                                 </button>
                             </div>
                         </div>
+			
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-offset-3">
+                                    <a href="{{ url('/auth/reddit') }}" class="btn btn-primary btn-reddit"><i class="fa fa-reddit fa-fw"></i> Log-in with Reddit</a>
+                                </div>
+                            </div>
+                        </div>
                     </form>
 @endsection

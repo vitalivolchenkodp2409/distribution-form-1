@@ -99,20 +99,20 @@
 
 
                         <li>
-                            <a href="{{ url('/fives/create') }}">
+                            <a href="{{ route('snapchat_page') }}">
                                 <i class="material-icons">camera_roll</i>
-                                <span>Snap Score</span>
+                                <span>Snapchat Story</span>
                             </a>
                         </li>
 			<li>
-                            <a href="{{ url('/fives/create') }}">
-                                <i class="material-icons">camera_roll</i>
-                                <span>Insta Followers</span>
+  <a href="{{ route('fbpage') }}">
+	                                <i class="material-icons">camera_roll</i>
+                                <span>Link Facebook</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{ url('/fives/create') }}">
+                            <a href="{{ route('reddpage') }}">
                                 <i class="material-icons">camera_roll</i>
                                 <span>Reddit Karma</span>
                             </a>
