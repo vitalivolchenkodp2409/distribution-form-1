@@ -6,9 +6,10 @@ fi
 
 branch=$1;
 git fetch;
-git reset --hard origin/master;
+echo "wtf1";
 git pull origin $branch;
-rsync -ravv ./laravel/* /var/www/laravel/
+echo "wtf2";
+rsync -ra ./laravel/* /var/www/laravel/
 cp ./laravel/.* /var/www/laravel/
 cd /var/www/; 
 chown -R :www-data /var/www/laravel; 
@@ -39,6 +40,7 @@ chmod -R 775 /var/www/laravel/bootstrap/cache;
 	    	mysql -uroot -panyPassword msf < /root/distribution-form/backupDatabases/databaseBackup1.sql;
 	fi
 fi
-
+php artisan route:clear;
+php artisan route:list;
 php artisan migrate; 
 php artisan serve --host "https://distribution.projectoblio.com"
