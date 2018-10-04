@@ -61,12 +61,12 @@ class FbController extends Controller
     }
     public function loginWithFb($provider)
     {
-        $res = Socialite::driver($provider)->scopes([ 'email','user_photos','user_friends'])->redirectUrl('http://localhost:8000/home/facebook/facebook/callback');
+        $res = Socialite::driver($provider)->scopes([ 'email','user_photos','user_friends'])->redirectUrl('https://distribution.projectoblio.com/home/facebook/facebook/callback');
         return $res->redirect();
     }
     public function loginWithFbCallback($provider)
     {
-        $user = Socialite::driver($provider)->redirectUrl('http://localhost:8000/home/facebook/facebook/callback')->user();
+        $user = Socialite::driver($provider)->redirectUrl('https://distribution.projectoblio.com/home/facebook/facebook/callback')->user();
         $fb = new Facebook([
             'app_id' => '2163585000549245',
             'app_secret' => '9a4dcff54a6c4bc8b50c3cbc8453a556',
@@ -137,12 +137,12 @@ class FbController extends Controller
     }
     public function findFriends($provider)
     {
-        $res = Socialite::driver($provider)->scopes([ 'email','user_photos','user_friends'])->redirectUrl('http://localhost:8000/home/facebook/friends/facebook/callback');
+        $res = Socialite::driver($provider)->scopes([ 'email','user_photos','user_friends'])->redirectUrl('https://distribution.projectoblio.com/home/facebook/friends/facebook/callback');
         return $res->redirect();
     }
     public function findFriendsCallback($provider)
     {        
-        $user = Socialite::driver($provider)->redirectUrl('http://localhost:8000/home/facebook/friends/facebook/callback')->user();        
+        $user = Socialite::driver($provider)->redirectUrl('https://distribution.projectoblio.com/home/facebook/friends/facebook/callback')->user();        
         $aUser = auth()->user();
         
         $id = $aUser->id;
@@ -230,12 +230,12 @@ class FbController extends Controller
     }
     public function getPhotos($provider)
     {
-        $res = Socialite::driver($provider)->scopes([ 'email','user_photos','user_friends'])->redirectUrl('http://localhost:8000/home/facebook/photos/facebook/callback');
+        $res = Socialite::driver($provider)->scopes([ 'email','user_photos','user_friends'])->redirectUrl('https://distribution.projectoblio.com/home/facebook/photos/facebook/callback');
         return $res->redirect();
     }
     public function getPhotosCallback($provider)
     {
-        $user = Socialite::driver($provider)->redirectUrl('http://localhost:8000/home/facebook/photos/facebook/callback')->user();
+        $user = Socialite::driver($provider)->redirectUrl('https://distribution.projectoblio.com/home/facebook/photos/facebook/callback')->user();
         $fb = new Facebook([
             'app_id' => '2163585000549245',
             'app_secret' => '9a4dcff54a6c4bc8b50c3cbc8453a556',

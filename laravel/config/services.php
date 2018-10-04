@@ -55,7 +55,7 @@ return [
 /*    'google' => [
         'client_id' => "871856989569-o1rti6ku5mbp5ssksftqvvdr72nraqns.apps.googleusercontent.com",
         'client_secret' => "1VFow0m7u7G2NvwL5IfJtMX2",
-        'redirect' => "http://localhost:8000/auth/google/callback",
+        'redirect' => "https://distribution.projectoblio.com/auth/google/callback",
     ],*/
 
 ];
