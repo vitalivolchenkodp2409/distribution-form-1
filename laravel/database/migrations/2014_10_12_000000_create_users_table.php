@@ -25,8 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('karma')->default('0')->nullable();
             $table->string('last_dub_time')->default('0')->nullable();
             $table->string('point')->default('0')->nullable();
-	    $table->string('karma')->default('0')->nullable();
-	    $table->string('last_dub_time')->default('0')->nullable();
+	        //$table->string('karma')->default('0')->nullable();
+	        //$table->string('last_dub_time')->default('0')->nullable();
             $table->integer('form_level')->default(0)->nullable();
             $table->string('ip')->nullable();
             $table->rememberToken();
