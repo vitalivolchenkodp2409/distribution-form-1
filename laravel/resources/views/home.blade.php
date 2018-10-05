@@ -105,6 +105,7 @@
                                           @endif
 
                                           <form action="/save-user-avatar" method="post" enctype="multipart/form-data">
+						<h3> Change your profile photo</h3>
                                             {{ csrf_field() }}
                                             <label class="btn btn-default" for="user_avatar">
                                               <input name="user_avatar" id="user_avatar" type="file" style="display:none;">

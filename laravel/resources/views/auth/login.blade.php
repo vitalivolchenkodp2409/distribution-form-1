@@ -6,7 +6,7 @@
         {{ csrf_field() }}
        <div class="msg">Sign in</div>
         <div class="input-group">
-	Create an anti-fake-news global identity, powered by cryptocurrency. <br>
+	Join a community of real people. Powered by cryptocurrency.<br>
 
             <span class="input-group-addon">
                 <i class="material-icons">person</i>
