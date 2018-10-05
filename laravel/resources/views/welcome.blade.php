@@ -145,11 +145,11 @@
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>Project Oblio</strong> Distribution</h1>
                             <br>
-                            {{-- <div class="description">
+                            <div class="description">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                    We're giving away cryptocurrency as we develop a better upvoting site.
                                 </p>
-                            </div> --}}
+                            </div> 
                         </div>
                     </div>
                     <div class="row">
@@ -182,7 +182,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
 
-                                            <form id="login-form" action="{{ route('login') }}" method="post" role="form" style="display: block;" >
+                                            <form id="login-form" action="{{ route('login') }}" method="post" role="form" style="display: block;" class="{{ isset($data['register']) ? 'active':''  }}">
                                                 {{ csrf_field() }}
 
 
@@ -354,19 +354,5 @@
         </script>
     </body>
 </html>
-
-    © 2018 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
 
 
