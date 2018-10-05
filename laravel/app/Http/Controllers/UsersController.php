@@ -86,13 +86,22 @@ class UsersController extends Controller
     
     
     public function externalsignup(Request $request){
-        dd($request);
         // $cookie = $request->cookie('redirect_back');
-        //$cookie=Cookie::get('redirect_back'); 
+        //$cookie=Cookie::get('redirect_back');
+        print_r($_COOKIE['redirect_back']); 
         if(isset($_COOKIE['redirect_back'])){
          $cookie= $_COOKIE['redirect_back'];
           //return $cookie;
         }
+        if(empty($cookie))
+        {
+            dd('Set');
+        }
+        else
+        {
+            dd('not set');
+        }
+        dd('test');
         if(empty($cookie)){
            abort(503);     
        }
