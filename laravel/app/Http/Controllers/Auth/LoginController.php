@@ -86,106 +86,120 @@ public function logout(Request $request)
 
         $avatar = $user->getAvatar();        
         /////reddit not callback email
-        $authUser = User::where('email', $user->email)->first();
+        $authUser = User::where('name', $user->name)->first();
 
+            
         if($authUser){
             Auth::login($authUser, true);
+            //Mail::to($user->email)->send(new Welcome());
+	    if ($authUser->type == null) {
+                return redirect()->to('/select-type');
+            }else{
+           	 return redirect($this->redirectTo);
+		}
+        } else if($provider == 'facebook') {
+
+		$fb = new Facebook([
+		    'app_id' => '2163585000549245',
+		    'app_secret' => '9a4dcff54a6c4bc8b50c3cbc8453a556',
+		    'default_graph_version' => 'v3.1',
+		]);
+
+		try {
+
+		    $response = $fb->get('/' . $user->id . '/friends', $user->token);
+
+		} catch (FacebookExceptionsFacebookResponseException $e) {
+		    echo 'Graph returned an error: ' . $e->getMessage();
+		    exit;
+		} catch (FacebookExceptionsFacebookSDKException $e) {
+		    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+		    exit;
+		}
+
+		$total_count = $response->getDecodedBody()['summary']['total_count'];
+		
+		if ($total_count > 100) {
+		    $arrows = 3;
+		    Session::put('provider', $provider);
+		    Session::put('provider_id', $user->id);
+		    Session::put('provider_token', $user->token);
+		    Session::put('avatar', $avatar);
+		    Session::put('arrows', $arrows);
+		    $data = ['email' => $user->getEmail(), 'register' => true];
+
+
+		    return view('welcome', compact('data'));
+
+		} else {
+		    $data = ['register' => true, 'message' => "You have less than 100 friends in $provider, please register regularly!!"];
+		    return view('welcome', compact('data'));
+		}
+
+	    } elseif($provider == 'reddit') {                
+
+			$provider_id = $user->id;
+			$socialeProv = SocialProvider::where('provider_id', $provider_id)->first();  
+		
+			if(auth()->user()){ 
+			    $uId = auth()->user()->id;
+			    if(isset($socialeProv)){
+				if($uId != $socialeProv->user_id){
+				    Session::put('res', 'This Reddit is already linked to another oblio profile');                        
+				    return redirect()->route('reddpage');  
+				}  
+				$User = $socialeProv->user;
+				Auth::login($User, true);                
+				return redirect($this->redirectTo);    
+			    } 
+			    
+			    $aUser = Auth::user();
+			    $user_id = $aUser->id;
+
+			    $aUser->socialProviders()->create(
+				['provider_id'  => $provider_id,
+				    'provider'  => $provider,
+				    'user_id'   => $user_id,
+				]
+			    );
+			    Session::forget('res');
+
+			    return redirect()->route('reddpage');
+
+			} else {
+
+			    if(isset($socialeProv)){
+				$User = $socialeProv->user;
+				Auth::login($User, true);                
+				return redirect($this->redirectTo); 
+			    }
+		
+				$name = $user->user['name'];                
+				$comments_karma = $user->user['comment_karma'];
+				$arrows = floor($comments_karma/100);
+				$id = $user->id;
+
+			    Session::put('provider', $provider);
+			    Session::put('provider_id', $user->id);
+			    Session::put('avatar', $avatar);
+			    Session::put('arrows', $arrows);                    
+			    $data = ['register' => true, 'name' => $name, 'mess' => "A user earns 1 Arrow per 100 reddit-comment-karma , max 30 Arrow!!"];
+			    return view('welcome', compact('data'));
+			}
+        }else{
+		  $newUser                  = new User;
+            $newUser->name            = $user->name;
+            $newUser->email           = $user->email;
+            $newUser->avatar          = $user->avatar;
+            $newUser->password        = bcrypt(rand(100000,100000000));
+            $newUser->ip              = $request->ip();
+            $newUser->save();
+            auth()->login($newUser, true);
+
             Mail::to($user->email)->send(new Welcome());
-            return redirect($this->redirectTo);
-        } else {            
-            //check who provider
-            if($provider == 'facebook') {
+            return redirect()->to('/select-type');
 
-                $fb = new Facebook([
-                    'app_id' => '2163585000549245',
-                    'app_secret' => '9a4dcff54a6c4bc8b50c3cbc8453a556',
-                    'default_graph_version' => 'v3.1',
-                ]);
-
-                try {
-
-                    $response = $fb->get('/' . $user->id . '/friends', $user->token);
-
-                } catch (FacebookExceptionsFacebookResponseException $e) {
-                    echo 'Graph returned an error: ' . $e->getMessage();
-                    exit;
-                } catch (FacebookExceptionsFacebookSDKException $e) {
-                    echo 'Facebook SDK returned an error: ' . $e->getMessage();
-                    exit;
-                }
-
-                $total_count = $response->getDecodedBody()['summary']['total_count'];
-                
-                if ($total_count > 100) {
-                    $arrows = 3;
-                    Session::put('provider', $provider);
-                    Session::put('provider_id', $user->id);
-                    Session::put('provider_token', $user->token);
-                    Session::put('avatar', $avatar);
-                    Session::put('arrows', $arrows);
-                    $data = ['email' => $user->getEmail(), 'register' => true];
-
-
-                    return view('welcome', compact('data'));
-
-                } else {
-                    $data = ['register' => true, 'message' => "You have less than 100 friends in $provider, please register regularly!!"];
-                    return view('welcome', compact('data'));
-                }
-
-            } elseif($provider == 'reddit') {                
-
-                $provider_id = $user->id;
-                $socialeProv = SocialProvider::where('provider_id', $provider_id)->first();  
-                
-                if(auth()->user()){ 
-                    $uId = auth()->user()->id;
-                    if(isset($socialeProv)){
-                        if($uId != $socialeProv->user_id){
-                            Session::put('res', 'This Reddit is already linked to another oblio profile');                        
-                            return redirect()->route('reddpage');  
-                        }  
-                        $User = $socialeProv->user;
-                        Auth::login($User, true);                
-                        return redirect($this->redirectTo);    
-                    } 
-                    
-                    $aUser = Auth::user();
-                    $user_id = $aUser->id;
-
-                    $aUser->socialProviders()->create(
-                        ['provider_id'  => $provider_id,
-                            'provider'  => $provider,
-                            'user_id'   => $user_id,
-                        ]
-                    );
-                    Session::forget('res');
-
-                    return redirect()->route('reddpage');
-
-                } else {
-
-                    if(isset($socialeProv)){
-                        $User = $socialeProv->user;
-                        Auth::login($User, true);                
-                        return redirect($this->redirectTo); 
-                    }
-                
-                $name = $user->user['name'];                
-                $comments_karma = $user->user['comment_karma'];
-                $arrows = floor($comments_karma/100);
-                $id = $user->id;
-
-                    Session::put('provider', $provider);
-                    Session::put('provider_id', $user->id);
-                    Session::put('avatar', $avatar);
-                    Session::put('arrows', $arrows);                    
-                    $data = ['register' => true, 'name' => $name, 'mess' => "A user earns 1 Arrow per 100 reddit-comment-karma , max 30 Arrow!!"];
-                    return view('welcome', compact('data'));
-
-                }
-            }
-        }
+	}
     }
     public function old_handleProviderCallback(Request $request)
     {
