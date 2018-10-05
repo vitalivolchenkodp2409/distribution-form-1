@@ -3,7 +3,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Selfi Varification</h2>
+                <h2>Link your reddit account.</h2>
             </div>
             <!-- Input -->
             <div class="row clearfix">
@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="header" align="center">
                             <h2>
-                                Welcome to the Reddit Page!
+                                Link you reddit account!
                             </h2>
                         </div>
                         <div class="body">
@@ -66,7 +66,7 @@
                                             </div>
                                         </div>
                                         <p>
-                                            Join now and will received 1 arrows per 100 reddit-comment-karma! Max 30 arrows.
+                                            Receive 1 arrows per 100 reddit-comment-karma, up to 30 arrows!
                                         </p>
                                     </div>
                                 @endif

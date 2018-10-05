@@ -3,7 +3,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Selfi Varification</h2>
+                <h2>Link Snapchat</h2>
             </div>
             <!-- Input -->
             <div class="row clearfix">
@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="header" align="center">
                             <h2>
-                                Welcome to the Snapchat Page!
+                                Link your snapchat here! 
                             </h2>
                         </div>
                         <div class="body">

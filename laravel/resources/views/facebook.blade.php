@@ -4,7 +4,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Selfi Varification</h2>
+                <h2>Link Facebook</h2>
             </div>
             <!-- Input -->
             <div class="row clearfix">
@@ -12,14 +12,14 @@
                     <div class="card">
                         <div class="header" align="center">
                             <h2>
-                                Welcome to the Facebook Page!
+                               Link your facebook here!
                             </h2>
                         </div>
                         <div class="body">
 
                             @if(Session::has('flash_message'))
                                 <div class="alert alert-success">
-                                    <strong>Success!</strong> {{ Session::get('flash_message') }}
+                                    <strong>Success! Your facebook is linked!</strong> {{ Session::get('flash_message') }}
                                 </div>
                             @endif
 
@@ -47,14 +47,22 @@
                                     @if(isset($data['provider']))
 
                                         <div class="form-group" {{ $data['mark'] == true ? 'hidden':'' }} align="center">
+						<p>
+                                              Link your Facebook to help other users trust you. 
+						<br>
+						<ul>
+							<li>Receive 3⇪ for each of your friends who join, up to 10 friends. </li>
+							<li>Receive 3⇪ for adding a photo to your Oblio profile, up to 16 photos.</li>
+						</ul>                     
+						<br>  
+						In Facebook's permission screen you can choose which of these you want give Project Oblio access to. Additionally, you can manually select which of these to add to your Oblio Profile. 
+			                       </p>
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-offset-3">
                                                     <a href="{{ url('/home/facebook/facebook') }}" class="btn btn-primary btn-facebook"><i class="fa fa-facebook"></i> Log-in with Facebook </a>
                                                 </div>
                                             </div>
-                                            <p>
-                                                Join now and will received 3 Arrows! 30 Arrows max for friends.
-                                            </p>
+                                           
                                         </div>
                                         <div class="form-group" align="center">
                                             <form id="unlink-form" action="{{ route('unlink_fb') }}" method="post" role="form" style="display: block;" >
@@ -68,7 +76,7 @@
                                                 </div>
                                             </form>
                                             <p>
-                                                If you click Unlink Facebook, you lose 1 Arrows!
+                                               Unlinking your facebook results in minus one ⇪.
                                             </p>
 
                                         </div>
@@ -82,7 +90,7 @@
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    You need at least 100 friends and 16 photos to earn Arrows here.
+                                                    You need at least 100 friends and 16 photos to earn ⇪ here.
                                                 </p>
                                             </div>
 
@@ -100,7 +108,7 @@
                                                     </div>
                                                 </form>
                                                 <p>
-                                                    If you click Unlink Facebook, you lose 1 Arrows!
+                                                    Removing access to friends will cost ⇪.
                                                 </p>
                                             </div>
                                             
@@ -142,8 +150,8 @@
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    You need at least 100 friends and 16 photos to earn Arrows here.
-                                                    If you does this earns 3 Karma.
+                                                    You need at least 100 friends and 16 photos to earn ⇪ here.
+                                             
                                                 </p>
                                             </div>
 
@@ -161,7 +169,7 @@
                                                     </div>
                                                 </form>
                                                 <p>
-                                                    If you click Unlink Facebook, you lose 1 Arrows!
+                                                   If you remove access to your Facebook photos, you'll lose ⇪.
                                                 </p>
                                             </div>
                                             
@@ -171,7 +179,7 @@
                                                 <div class="card">
                                                     <div class="header">
                                                         <h2>
-                                                            Facebook fotos
+                                                           Your Facebook photos
                                                         </h2>
                                                     </div>
                                                     <div class="body">
@@ -192,6 +200,9 @@
                                         @endif
 
                                         <div class="form-group" align="center">
+						<p>
+                                               You can earn an ⇪ for liking our Facebook page. You can also just click the button above for your ⇪ and not actually like it (we won't check and don't value Facebook likes very much)
+                                            </p>
                                             <form id="unlink-form" action="{{ route('like') }}" method="post" role="form" style="display: block;" >
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
@@ -202,25 +213,33 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                            <p>
-                                                User who click "Like our Facebook page" will received 1 Arrows!
-                                            </p>
+                                            
                                         </div>
 
                                     @else
 
                                         <div class="form-group" {{ $data['mark'] == true ? 'hidden':'' }} align="center">
+  Link your Facebook to help other users trust you. 
+						<br>
+						<ul>
+							<li>Receive 3⇪ for each of your friends who join, up to 10 friends. </li>
+							<li>Receive 3⇪ for adding a photo to your Oblio profile, up to 16 photos.</li>
+						</ul>                     
+						<br>  
+						In Facebook's permission screen you can choose which of these you want give Project Oblio access to. Additionally, you can manually select which of these to add to your Oblio Profile. 
+			                       </p>
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-offset-3">
                                                     <a href="{{ url('/home/facebook/facebook') }}" class="btn btn-primary btn-facebook"><i class="fa fa-facebook"></i> Log-in with Facebook </a>
                                                 </div>
                                             </div>
-                                            <p>
-                                                Join now and will received 3 Arrows! 30 Arrows max for friends.
-                                            </p>
+                                            
                                         </div>
 
                                         <div class="form-group" align="center">
+						<p>
+                                               You can earn an ⇪ for liking our Facebook page. You can also just click the button above for your ⇪ and not actually like it (we won't check and don't value Facebook likes very much)
+                                            </p>
                                             <form id="unlink-form" action="{{ route('like') }}" method="post" role="form" style="display: block;" >
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
@@ -231,9 +250,7 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                            <p>
-                                                User who click "Like our Facebook page" will received 1 Arrows!
-                                            </p>
+                                            
                                         </div>
 
                                     @endif
