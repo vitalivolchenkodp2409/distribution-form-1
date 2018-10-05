@@ -60,14 +60,18 @@
                                                 <td>{{ $current_user->created_at }}</td>
                                               </tr>
                                               <tr>
-                                                <td>Arrows earned</td>
+                                                <td>Arrows held</td>
                                                 <td>
-                                                  @if($current_user->arrows == 0)
-                                                    Pending
-                                                  @else
+                                                 
                                                     {{ $current_user->arrows }}
-                                                  @endif
+                                              
 
+                                                </td>
+                                              </tr>
+						<tr>
+                                                <td>Karma held</td>
+                                                <td>	
+                                                    {{ $current_user->karma }}
                                                 </td>
                                               </tr>
                                               <tr>
