@@ -25,7 +25,7 @@
    
                                   <div class="panel panel-info">
                                     <div class="panel-heading">
-                                      <h3 class="panel-title">Profile Info</h3>
+                                      <h3 class="panel-title">Your information</h3>
                                     </div>
                                     <div class="panel-body">
                                       <div class="row">
@@ -60,12 +60,12 @@
                                                 <td>{{ $current_user->created_at }}</td>
                                               </tr>
                                               <tr>
-                                                <td>Karma</td>
+                                                <td>Arrows earned</td>
                                                 <td>
-                                                  @if($current_user->point == 0)
+                                                  @if($current_user->arrows == 0)
                                                     Pending
                                                   @else
-                                                    {{ $current_user->point }}
+                                                    {{ $current_user->arrows }}
                                                   @endif
 
                                                 </td>

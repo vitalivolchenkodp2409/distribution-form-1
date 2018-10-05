@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="header" align="center">
                             <h2>
-                               Link your facebook here!
+                               Build trust by linking your Facebook
                             </h2>
                         </div>
                         <div class="body">
@@ -48,7 +48,6 @@
 
                                         <div class="form-group" {{ $data['mark'] == true ? 'hidden':'' }} align="center">
 						<p>
-                                              Link your Facebook to help other users trust you. 
 						<br>
 						<ul>
 							<li>Receive 3⇪ for each of your friends who join, up to 10 friends. </li>
