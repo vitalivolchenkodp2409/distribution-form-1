@@ -59,6 +59,9 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/');
     }
+public function username(){
+        return 'name';
+     }
     
     /**
      * Redirect the user to the google authentication page.
