@@ -61,7 +61,7 @@ server {
 	location ~ /\.ht {
 		deny all;
 	}
-
+ 	client_max_body_size 20M; 
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/distribution.projectoblio.com/fullchain.pem; # managed by Certbot
