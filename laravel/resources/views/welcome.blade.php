@@ -182,7 +182,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
 
-                                            <form id="login-form" action="{{ route('login') }}" method="post" role="form" style="display: block;" class="{{ isset($data['register']) ? 'active':''  }}">
+                                            <form id="login-form" action="{{ route('login') }}" method="post" role="form" style="display: block;">
                                                 {{ csrf_field() }}
 
 

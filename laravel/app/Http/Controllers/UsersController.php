@@ -48,7 +48,7 @@ class UsersController extends Controller
                 $arrows = 30;
             }            
             ///check isset authUser
-            $authUser = User::where('email', $request->email)->first();
+            $authUser = User::where('name', $request->name)->first();
             if(!$authUser) {
                 $user = User::create(
                     [
