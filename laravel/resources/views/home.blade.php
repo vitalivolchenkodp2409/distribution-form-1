@@ -84,7 +84,10 @@
 						<tr>
 						<td>Send ETH to the above address to have it converted to ARR</td>
 						</tr>
-						<iframe src="https://drive.projectoblio.com:8080/contributionRate?user="+{{ $current_user->name }}>
+						<iframe src="https://drive.projectoblio.com:8080/public/contributionRate?user="+{{ $current_user->name }}>
+
+						</iframe>
+						<iframe src="https://drive.projectoblio.com:8080/public/transactionHistory?user="+{{ $current_user->name }}>
 
 						</iframe>
 
@@ -105,7 +108,8 @@
                                           @endif
 					 <h3> Change your account type to unlock more ways to earn</h3>
 						<form action="/select-type" method="get">
-						<input href="https://distribution.projectoblio.com/select-type" type="submit" value="Change account type" class="btn btn-primary">
+							<input type="submit" value="Change account type" class="btn btn-primary">
+							</input>
 						</form>
 						
                                           <form action="/save-user-avatar" method="post" enctype="multipart/form-data">
