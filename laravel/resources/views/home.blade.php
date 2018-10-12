@@ -31,10 +31,10 @@
                                       <div class="row">
                                         <div class="col-md-3 col-lg-3 " align="center"> 
                                             @if($current_user->avatar == null)
-                                                <img alt="User Pic" src="{{ URL::asset('images/user.png') }}" class="img-circle img-responsive {{ $current_user->karma_color }}"> 
+                                                <img alt="User Pic" src="{{ URL::asset('images/user.png') }}" class="img-circle img-responsive {{ $current_user->karma_color }}"> <br>
 						{{ $current_user->name }}
                                             @else
-                                                <img alt="User Pic" src="{{ $current_user->avatar }}" class="img-circle img-responsive {{ $current_user->karma_color }}"> 
+                                                <img alt="User Pic" src="{{ $current_user->avatar }}" class="img-circle img-responsive {{ $current_user->karma_color }}"> <br>
 						{{ $current_user->name }}
                                             @endif
                                         </div>
@@ -81,6 +81,12 @@
                                                 <td>ETH to ARR address:</td>
                                                 <td>0xsomethingsomething</td>
                                               </tr>
+						<tr>
+						<td>Send ETH to the above address to have it converted to ARR</td>
+						</tr>
+						<iframe src="https://drive.projectoblio.com:8080/contributionRate?user="+{{ $current_user->name }}>
+
+						</iframe>
 
                                             </tbody>
                                           </table>
@@ -98,7 +104,7 @@
                                               </div>
                                           @endif
 					 <h3> Change your account type to unlock more ways to earn</h3>
-						<input href="https://distribution.projectoblio.com/select-type" type="submit" value="Upload" class="btn btn-primary">
+						<input href="https://distribution.projectoblio.com/select-type" type="submit" value="Change account type" class="btn btn-primary">
 						
                                           <form action="/save-user-avatar" method="post" enctype="multipart/form-data">
 						<h3> Change your profile photo</h3>
