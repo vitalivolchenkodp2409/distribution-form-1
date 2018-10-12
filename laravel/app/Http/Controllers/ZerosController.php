@@ -46,14 +46,14 @@ class ZerosController extends Controller
      */
     public function create()
     {
-        /*$user_id = Auth::id();
+        $user_id = Auth::id();
         $count = Zero::where('user_id', $user_id)->count();
-	$addresses=Ethereum::addresses();
+	/*$addresses=Ethereum::addresses();
 	error_log("ethereum addresses");
 	error_log($addresses);*/
 
         if ($count == 0) {
-            return view('zeros.create',['addresses'->$addresses]);
+            return view('zeros.create');
         }else{
             $zero = Zero::where('user_id', $user_id)->first();
             return redirect(route('zeros.show', array('id' => $zero->id)));
