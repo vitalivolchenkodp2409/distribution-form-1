@@ -48,7 +48,6 @@
 			<a href="{{ url('/university/create') }}">
 				<i class="material-icons">autorenew</i>
 				<span>Oblio University</span>
-
 			</a>
 			</li>
 
@@ -58,7 +57,7 @@
                             <span>Contribute ETH</span>
                         </a>
                     </li>
-		@if($current_user->type=="simple")
+		@if($current_user->type=="simple" || $current_user->type=="advance")
 			<li class="header">Earn While Contributing To Oblio</li>
 			<ul>
                     <!--<li>
@@ -87,7 +86,7 @@
 
 
 		@endif
-                @if($current_user->type=="simple")
+                @if($current_user->type=="simple" ||  $current_user->type=="advance")
 
 			<li class="header">Earn For Your Other Accounts</li>
 			<ul>
