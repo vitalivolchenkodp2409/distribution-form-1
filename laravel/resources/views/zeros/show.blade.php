@@ -5,7 +5,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Ethereum Address</h2>
+                <h2>Contribute</h2>
             </div>
             <!-- Input -->
             <div class="row clearfix">
@@ -15,7 +15,7 @@
                             <div class="row">
                                 <div class="col-sm-11">
                                     <h2>
-                                       Enter an Ethereum Address for us to send your ARR tokens. Don't include an address owned by a company like Coinbase or Poloniex, or you'll lose your Ether. Include an address you have the private key for, like an address generated at myetherwallet.com. 
+                                       To see contribution rates, first enter an Ethereum Address for us to send your ARR tokens. Don't include an address owned by a company like Coinbase or Poloniex, or you'll lose your Ether. Include an address you have the private key for, like an address generated at myetherwallet.com. 
                                     </h2>
                                 </div>
                                 <div class="col-sm-1 text-right">
