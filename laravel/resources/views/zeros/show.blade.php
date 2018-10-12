@@ -15,7 +15,7 @@
                             <div class="row">
                                 <div class="col-sm-11">
                                     <h2>
-                                        Provide us with the Ethereum address you’d like to contribute ETH from. If you’ll be completing more verification steps, this is where we’ll be sending free ETH at the conclusion of the airdrop
+                                       Enter an Ethereum Address for us to send your ARR tokens. Don't include an address owned by a company like Coinbase or Poloniex, or you'll lose your Ether. Include an address you have the private key for, like an address generated at myetherwallet.com. 
                                     </h2>
                                 </div>
                                 <div class="col-sm-1 text-right">
