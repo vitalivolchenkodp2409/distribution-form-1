@@ -22,9 +22,7 @@
                                 <a href="{{url('/profile')}}"><i class="material-icons">person</i>Profile</a>
                             </li>
                             @endcan
-                            <li>
-                                <a href="{{ url('/select-type') }}" ><i class="material-icons">autorenew</i>Change Type</a>
-                            </li>
+                            
                             <li>
                                 <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" ><i class="material-icons">input</i>Sign Out</a>
                             </li>
@@ -47,9 +45,9 @@
                         </a>
                     </li>
 			<li>
-			<a href="{{ url('/select-type') }}">
+			<a href="{{ url('/university/create') }}">
 				<i class="material-icons">autorenew</i>
-				<span>Change Account Type</span>
+				<span>Oblio University</span>
 
 			</a>
 			</li>
@@ -57,83 +55,90 @@
                     <li>
                         <a href="{{ url('/zeros/create') }}">
                             <i class="material-icons">spellcheck</i>
-                            <span>Ethereum Address</span>
+                            <span>Contribute ETH</span>
                         </a>
                     </li>
-                    @if($current_user->type=="simple"||$current_user->type=="advance")
-			<li class="header">SIMPLE VERIFICATIONS </li>
+		@if($current_user->type=="simple")
+			<li class="header">Earn While Contributing To Oblio</li>
 			<ul>
-                    <li>
+                    <!--<li>
                         <a href="{{ url('/ones/create') }}">
                             <i class="material-icons">account_box</i>
                             <span>Home Address</span>
                         </a>
-                    </li>
+                    </li>-->
+			
+			 <li>
+                            <a href="{{ url('/fives/create') }}">
+                                <i class="material-icons">camera_roll</i>
+                                <span>Lol.how Goals</span>
+                            </a>
+                        </li>
                     <li>
+			@if($current_user->type=="advance")
                         <a href="{{ url('/twos/create') }}">
                             <i class="material-icons">assessment</i>
                         	    <span>DUBs</span>
                 	        </a>
-               	     </li>
-        	            <li>
-        	                <a href="{{ url('/threes/create') }}">
-        	                    <i class="material-icons">perm_phone_msg</i>
-                            <span>Phone Verification</span>
-       	                 </a>
-     	               </li>
-			</ul>
-
-
 			@endif
-                    @if($current_user->type=="advance")
-
-			 <li class="header">ADVANCED VERIFICATIONS</li>
-				<ul>
-
-			 <li>
-                            <a href="{{ url('/fives/create') }}">
-                                <i class="material-icons">camera_roll</i>
-                                <span>IRT Activity</span>
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a href="{{ route('snapchat_page') }}">
-                                <i class="material-icons">camera_roll</i>
-                                <span>Snapchat Story</span>
-                            </a>
-                        </li>
-			<li>
-  <a href="{{ route('fbpage') }}">
-	                                <i class="material-icons">camera_roll</i>
-                                <span>Link Facebook</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('reddpage') }}">
-                                <i class="material-icons">camera_roll</i>
-                                <span>Reddit Karma</span>
-                            </a>
-                        </li>
+               	     </li>
+        	            
 			</ul>
-			<li class="header">LEGACY VERIFICATIONS</li>
-                                <ul>
-                        <li>
-                            <a href="{{ url('/fives/create') }}">
-                                <i class="material-icons">camera_roll</i>
-                                <span>Selfie verification</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/fours/create') }}">
-                                <i class="material-icons">school</i>
-                                <span>University verification</span>
-                            </a>
-                        </li>
-			</li>
 
+
+		@endif
+                @if($current_user->type=="simple")
+
+			<li class="header">Earn For Your Other Accounts</li>
+			<ul>
+
+			
+				<li>
+			                <a href="{{ url('/threes/create') }}">
+			                    <i class="material-icons">perm_phone_msg</i>
+		                    <span>Phone Verification</span>
+	       	                 </a>
+	     	               </li>
+
+		                <!--<li>
+		                    <a href="{{ route('snapchat_page') }}">
+		                        <i class="material-icons">camera_roll</i>
+		                        <span>Snapchat Story</span>
+		                    </a>
+		                </li>-->
+				@if($current_user->type=="advance")
+					<li>
+		  <a href="{{ route('fbpage') }}">
+					                <i class="material-icons">camera_roll</i>
+				                <span>Link Facebook</span>
+				            </a>
+				        </li>
+				@endif
+		                <li>
+		                    <a href="{{ route('reddpage') }}">
+		                        <i class="material-icons">camera_roll</i>
+		                        <span>Link Reddit</span>
+		                    </a>
+		                </li>
+			</ul>
+			@if($current_user->type=="advance")
+				<li class="header">Legacy ways-to-earn</li>
+		                        <ul>
+		                <li>
+		                    <a href="{{ url('/fives/create') }}">
+		                        <i class="material-icons">camera_roll</i>
+		                        <span>Selfie verification</span>
+		                    </a>
+		                </li>
+		                <li>
+		                    <a href="{{ url('/fours/create') }}">
+		                        <i class="material-icons">school</i>
+		                        <span>University verification</span>
+		                    </a>
+		                </li>
+				</li>
+			
+			@endif
 			</ul>
             @if(auth()->user()->email === 'admin@projectoblio.com')
             <li class="header">OAUTH CLIENTS</li>

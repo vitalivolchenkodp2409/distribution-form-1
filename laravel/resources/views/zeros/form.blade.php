@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-sm-4 col-sm-offset-4 form-design">
-		{!! Form::label('ethereum_address', 'Contribute', ['class' => 'control-label']) !!}
+		{!! Form::label('ethereum_address', 'Ethereum Address', ['class' => 'control-label']) !!}
 		{!! Form::text('ethereum_address', null, ['class' => 'form-control', 'required' => 'required']) !!}
 
 {{-- 		{!! Form::label('ip', 'IP', ['class' => 'control-label']) !!}

@@ -22,14 +22,8 @@ apt-get install curl git -y --allow-unauthenticated;
 mysql_secure_installation
 apt-get install phpmyadmin -y; 
 
-# Ethereum
-add-apt-repository -y ppa:ethereum/ethereum;
-apt-get update; 
-apt-get install ethereum -y; 
 cd ~/dist*;
 cp php.ini /etc/php/7.2/cli/php.ini;
-echo "Not starting geth in case laravel developers don't need it"
-#nohup ./runGeth.sh > /dev/null 2>&1 
 
 mkdir -p /var/www/laravel; 
 service nginx restart; 
