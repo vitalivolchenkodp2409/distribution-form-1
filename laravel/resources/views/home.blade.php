@@ -32,8 +32,10 @@
                                         <div class="col-md-3 col-lg-3 " align="center"> 
                                             @if($current_user->avatar == null)
                                                 <img alt="User Pic" src="{{ URL::asset('images/user.png') }}" class="img-circle img-responsive {{ $current_user->karma_color }}"> 
+						{{ $current_user->name }}
                                             @else
                                                 <img alt="User Pic" src="{{ $current_user->avatar }}" class="img-circle img-responsive {{ $current_user->karma_color }}"> 
+						{{ $current_user->name }}
                                             @endif
                                         </div>
 
@@ -43,7 +45,7 @@
                                         <div class=" col-md-9 col-lg-9 "> 
                                           <table class="table table-user-information">
                                             <tbody>
-                                              <tr>
+                                              <!--<tr>
                                                 <td>Name:</td>
                                                 <td>{{ $current_user->name }}</td>
                                               </tr>
@@ -51,16 +53,13 @@
                                                 <td>Email</td>
                                                 <td><a href="mailto:info@support.com">{{ $current_user->email }}</a></td>
                                               </tr>
-                                              <tr>
-                                                <td>Profile Type</td>
-                                                <td>{{ $current_user->type }}</td>
-                                              </tr>
+                                              
                                               <tr>
                                                 <td>Profile Created At</td>
                                                 <td>{{ $current_user->created_at }}</td>
-                                              </tr>
+                                              </tr>-->
                                               <tr>
-                                                <td>Arrows held</td>
+                                                <td>Arrows:</td>
                                                 <td>
                                                  
                                                     {{ $current_user->arrows }}
@@ -69,23 +68,18 @@
                                                 </td>
                                               </tr>
 						<tr>
-                                                <td>Karma held</td>
+                                                <td>Karma:</td>
                                                 <td>	
                                                     {{ $current_user->karma }}
                                                 </td>
                                               </tr>
-                                              <tr>
-                                                <td>Contribution Rate</td>
-                                                <td>
-                                                  @if($current_user->point > 10)
-                                                    1.0
-                                                  @elseif($current_user->point > 3)
-                                                    2.0 
-                                                  @else
-                                                    2.5 
-                                                  @endif
-                                                   mETH/OBL
-                                                </td>
+                                             <tr>
+                                                <td>Profile Type</td>
+                                                <td>{{ $current_user->type }}</td>
+                                              </tr>
+						<tr>
+                                                <td>ETH to ARR address:</td>
+                                                <td>0xsomethingsomething</td>
                                               </tr>
 
                                             </tbody>
@@ -103,7 +97,9 @@
                                                   {{ session('error') }}
                                               </div>
                                           @endif
-
+					 <h3> Change your account type to unlock more ways to earn</h3>
+						<input href="https://distribution.projectoblio.com/select-type" type="submit" value="Upload" class="btn btn-primary">
+						
                                           <form action="/save-user-avatar" method="post" enctype="multipart/form-data">
 						<h3> Change your profile photo</h3>
                                             {{ csrf_field() }}
