@@ -104,7 +104,9 @@
                                               </div>
                                           @endif
 					 <h3> Change your account type to unlock more ways to earn</h3>
+						<form action="/select-type" method="get">
 						<input href="https://distribution.projectoblio.com/select-type" type="submit" value="Change account type" class="btn btn-primary">
+						</form>
 						
                                           <form action="/save-user-avatar" method="post" enctype="multipart/form-data">
 						<h3> Change your profile photo</h3>
