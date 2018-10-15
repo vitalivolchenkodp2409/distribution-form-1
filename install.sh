@@ -1,5 +1,8 @@
-
 #!/bin/sh
+dbuser=root
+dbpass=anyPassword
+dbname=msf
+dbhost=51.38.135.178
 nano +39 nginx-default;
 apt-get update; 
 apt-get install nginx -y; 
@@ -60,7 +63,7 @@ cd /var/www/laravel;
 composer install --no-dev; 
 cd laravel; 
 php artisan key:generate;
-mysql -uroot -panyPassword -e "create database msf;";
+mysql -u$dbuser -p$dbpass -h$dbhost -e "create database $dbname;";
 php artisan migrate; 
 
 

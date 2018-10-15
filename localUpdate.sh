@@ -3,6 +3,10 @@ if [ $# -eq 0 ] ; then
     echo 'Please enter a branch name'
     exit 1
 fi
+dbuser=root
+dbpass=anyPassword
+dbname=msf
+dbhost=51.38.135.178
 
 branch=$1;
 git fetch;
@@ -35,9 +39,9 @@ chmod -R 775 /var/www/laravel/bootstrap/cache;
 	if [ $# -eq 3 ] ; then
 
     		echo 'Restoring mysql backup'
-   		mysql -uroot -panyPassword -e "drop database msf;" 
-		mysql -uroot -panyPassword -e "create database msf;" 
-	    	mysql -uroot -panyPassword msf < /root/distribution-form/backupDatabases/databaseBackup1.sql;
+   		mysql -u$dbuser -p$dbpass -h$dbhost -e "drop database $dbname;" 
+		mysql -u$dbuser -p$dbpass -h$dbhost -e "create database $dbname;" 
+	    	mysql -u$dbuser -p$dbpass -h$dbhost $dbname < /root/distribution-form/backupDatabases/databaseBackup1.sql;
 	fi
 fi
 php artisan route:clear;
