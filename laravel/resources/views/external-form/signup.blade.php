@@ -210,7 +210,8 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                            <form id="register-form" action="{{ url('/externalsignup') }}" method="post" role="form" style="display: block;">
+                                            @php $redirect_back = "/".md5('redirect_back'); @endphp
+                                            <form id="register-form" action="{{ url('/externalsignup') . $redirect_back}}" method="post" role="form" style="display: block;">
 
                                                 {{ csrf_field() }}
 

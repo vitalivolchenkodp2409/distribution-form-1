@@ -19,10 +19,12 @@ Route::get('/', function () {
 //only guests can access these routes
 Route::group(['middleware' => ['guest']], function () {
     Route::post('/signup', 'UsersController@store');
-    Route::get('externalsignup','UsersController@externalsignup');
-	Route::post('/externalsignup', 'UsersController@externalstore'); 
-    Route::post('/welcome', 'UsersController@store');
+//Route::post('/externalsignup', 'UsersController@externalstore'); 
+   Route::post('/welcome', 'UsersController@store');
 
+    Route::get('externalsignup/','UsersController@externalsignup');
+    Route::get('externalsignup/{code}','UsersController@externalsignup');
+    Route::post('/externalsignup/{code}', 'UsersController@externalstore'); 
 });
 
 
@@ -46,6 +48,7 @@ Route::post('/phone/validation', 'ThreesController@submit_validation');
 Route::resource('threes', 'ThreesController');
 Route::resource('fours', 'FoursController');
 Route::resource('fives', 'FivesController');
+
 //Route::resource('anonymouses', 'AnonymousesController');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
@@ -82,3 +85,4 @@ Route::post('/home/reddit/unlink', 'RedditController@unlinkReddit')->name('unlin
 /////////////////////////////////////////////////////////////////////////
 //Snapchat Story page
 Route::get('/home/snapchat', 'SnapchatController@index')->name('snapchat_page');
+//Route::resource('anonymouses', 'AnonymousesController');
