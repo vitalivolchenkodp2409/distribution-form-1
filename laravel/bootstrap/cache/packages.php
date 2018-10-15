@@ -1,4 +1,11 @@
 <?php return array (
+  'andskur/laracrypto' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Andskur\\Laracrypto\\LaracryptoServiceProvider',
+    ),
+  ),
   'aloha/twilio' => 
   array (
     'providers' => 
@@ -10,13 +17,6 @@
       'Twilio' => 'Aloha\\Twilio\\Support\\Laravel\\Facade',
     ),
   ),
-  'andskur/laracrypto' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Andskur\\Laracrypto\\LaracryptoServiceProvider',
-    ),
-  ),
   'anhskohbo/no-captcha' => 
   array (
     'providers' => 
@@ -26,13 +26,6 @@
     'aliases' => 
     array (
       'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
-    ),
-  ),
-  'appzcoder/crud-generator' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Appzcoder\\CrudGenerator\\CrudGeneratorServiceProvider',
     ),
   ),
   'fideloper/proxy' => 
@@ -88,6 +81,13 @@
     array (
       'Form' => 'Collective\\Html\\FormFacade',
       'Html' => 'Collective\\Html\\HtmlFacade',
+    ),
+  ),
+  'appzcoder/crud-generator' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Appzcoder\\CrudGenerator\\CrudGeneratorServiceProvider',
     ),
   ),
   'nunomaduro/collision' => 

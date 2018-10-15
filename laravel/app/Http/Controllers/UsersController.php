@@ -75,7 +75,7 @@ class UsersController extends Controller
         if(isset($response->GetProfileResult->Image)){
             $image=$response->GetProfileResult->Image;
         }
-       // echo "<pre>";
+
         return $image;
         }
         catch(\Exception $e){
@@ -85,8 +85,8 @@ class UsersController extends Controller
     }
     
     
-    public function externalsignup(Request $request){
-        // $cookie = $request->cookie('redirect_back');
+    public function externalsignup($code = null, Request $request){
+        /*// $cookie = $request->cookie('redirect_back');
         //$cookie=Cookie::get('redirect_back'); 
         if(isset($_COOKIE['redirect_back'])){
          $cookie= $_COOKIE['redirect_back'];
@@ -94,22 +94,42 @@ class UsersController extends Controller
         }
         if(empty($cookie)){
            abort(503);     
-       }
+        }
+        */
+        if (empty($code)) {
+            abort(503);
+        } else {
+            if ($code == md5('redirect_back')) {
+                
+            } else {
+                abort(503);
+            }
+        }
         
-      return view('external-form.signup');   
+        return view('external-form.signup');
     }
     
-    public function externalstore(Request $request)
+    public function externalstore($code = null, Request $request)
      {
-        if(isset($_COOKIE['redirect_back'])){
+        /*if(isset($_COOKIE['redirect_back'])){
          $cookie= $_COOKIE['redirect_back'];
           //return $cookie;
         }
         
         if(empty($cookie)){
            abort(503);     
+        }*/
+        
+        if (empty($code)) {
+            abort(503);
+        } else {
+            if ($code == md5('redirect_back')) {
+                
+            } else {
+                abort(503);
+            }
         }
-         
+        
         $request->validate([
             'email' => 'required|unique:users',
             'name' => 'required|unique:users',
@@ -143,7 +163,8 @@ class UsersController extends Controller
 //                curl_setopt($ch, CURLOPT_TIMEOUT, 3);
 //                $result = curl_exec($ch);
 
-                return redirect()->away($cookie.'?'.$fields);
+//                return redirect()->away($cookie.'?'.$fields);
+                return redirect()->away(env('POSTER_URL').'/externalauth'.'?'.$fields);
            // }
         }
         

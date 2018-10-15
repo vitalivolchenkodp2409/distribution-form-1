@@ -3,3 +3,4 @@ vendor
 ./ethdata/geth/nodes
 ./ethdata/geth/ethash
 ./laravel/vendor
+/laravel/nbproject/private/
