@@ -4,9 +4,8 @@
 
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
-       <div class="msg">Sign in</div>
-        <div class="input-group">
-	Join a community of real people. Powered by cryptocurrency.<br>
+       <div class="msg">Log-in</div>
+        
 
             <span class="input-group-addon">
                 <i class="material-icons">person</i>
