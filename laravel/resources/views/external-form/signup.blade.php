@@ -157,10 +157,9 @@
                         <div class="col-md-6 col-md-offset-3">
                             <div class="panel panel-login">
                                 <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-6">
+                                    <div class="row" style="text-align:center">
                                             <a href="#" class="active" id="register-form-link2">Register</a>
-                                        </div>
+                                       
                                     </div>
                                     <hr>
                                 </div>
