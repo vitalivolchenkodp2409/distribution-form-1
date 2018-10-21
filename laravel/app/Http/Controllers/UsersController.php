@@ -188,8 +188,10 @@ class UsersController extends Controller
             abort(503);
         } else {
             if ($code == md5('redirect_back')) {
-                
-            } else {
+                $redirectUrl=env('POSTER_URL');
+            }else if ($code == md5('redirect_back_music')){
+			 $redirectUrl=env('MUSIC_URL');
+		} else {
                 abort(503);
             }
         }
@@ -230,7 +232,7 @@ class UsersController extends Controller
 //                $result = curl_exec($ch);
 
 //                return redirect()->away($cookie.'?'.$fields);
-                return redirect()->away(env('POSTER_URL').'/externalauth'.'?'.$fields);
+                return redirect()->away(env($redirectURL).'/externalauth'.'?'.$fields);
            // }
         }
         
