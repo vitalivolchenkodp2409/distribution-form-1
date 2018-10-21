@@ -232,7 +232,7 @@ class UsersController extends Controller
 //                $result = curl_exec($ch);
 
 //                return redirect()->away($cookie.'?'.$fields);
-                return redirect()->away(env($redirectUrl).'/externalauth'.'?'.$fields);
+                return redirect()->away($redirectUrl.'/externalauth'.'?'.$fields);
            // }
         }
         
