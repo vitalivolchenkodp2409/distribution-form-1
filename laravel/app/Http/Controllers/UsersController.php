@@ -208,6 +208,7 @@ class UsersController extends Controller
             [
              'name'             => $request->input('name'),
 		'username'      => $request->input('name'),
+		'api_token' => str_random(60),
              'email'            => $request->input('email'),
              'password'         => bcrypt($request->input('password')),
              'company'          => $request->input('company'),
