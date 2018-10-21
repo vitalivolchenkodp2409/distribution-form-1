@@ -4,10 +4,9 @@
 
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
-       <div class="msg">Log-in</div>
-        
-
-            <span class="input-group-addon">
+       <div class="msg">Login</div>
+        <div class="input-group">
+	    <span class="input-group-addon">
                 <i class="material-icons">person</i>
             </span>
             <div class="form-line">
