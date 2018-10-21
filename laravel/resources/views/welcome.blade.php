@@ -147,7 +147,7 @@
                             <br>
                             <div class="description">
                                 <p>
-                                    We're giving away cryptocurrency as we develop a better upvoting site.
+                                  
                                 </p>
                             </div> 
                         </div>
