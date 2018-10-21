@@ -43,15 +43,17 @@
             </div>
         </div>
 
-	<div class="form-group">
+	
+
+        <!-- 
+		<div class="form-group">
             <div class="row">
                 <div class="col-md-6 col-sm-offset-3">
                     <a href="{{ url('/auth/reddit') }}" class="btn btn-primary btn-reddit"><i class="fa fa-reddit fa-fw"></i> Log-in with Reddit</a>
                 </div>
             </div>
         </div>
-
-        <!-- <div class="row m-t-15 m-b--20">
+	<div class="row m-t-15 m-b--20">
             <div class="col-xs-6">
                 <a href="sign-up.html">Register Now!</a>
             </div>

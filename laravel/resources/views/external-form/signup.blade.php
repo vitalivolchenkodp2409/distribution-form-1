@@ -135,7 +135,11 @@
 
     </head>
 
-    <body>
+    <body style="background: url('https://distribution.projectoblio.com/assets/img/backgrounds/1.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+            background-size: cover;">
 
         <!-- Top content -->
         <div class="top-content">
