@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
 		// standard across sites:
 		$table->increments('id');
 		$table->string('name')->unique();
+		$table->string('username')->unique(); // same as name, will be used on poster site
 		$table->string('email')->unique();
 		$table->string('password');
 		$table->string('arrows')->default('0')->nullable();
