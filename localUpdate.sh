@@ -40,7 +40,7 @@ chmod -R 775 /var/www/laravel/bootstrap/cache;
 
     		echo 'Restoring mysql backup'
    		mysql -u$dbuser -p$dbpass -h$dbhost -e "drop database $dbname;" 
-		#mysql -u$dbuser -p$dbpass -h$dbhost -e "create database $dbname;" 
+		mysql -u$dbuser -p$dbpass -h$dbhost -e "create database $dbname;" 
 	    	#mysql -u$dbuser -p$dbpass -h$dbhost $dbname < /root/distribution-form/backupDatabases/databaseBackup1.sql;
 	fi
 fi
