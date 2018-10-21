@@ -25,7 +25,11 @@
     <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
 </head>
 
-<body class="login-page">
+<body class="login-page" style="background: url('https://distribution.projectoblio.com/assets/img/backgrounds/1.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+            background-size: cover;">
     <div class="login-box">
         <div class="logo">
             <a href="javascript:void(0);"><b>Project Oblio</b> Distribution</a>
