@@ -159,9 +159,6 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <a href="#" id="login-form-link">Login</a>
-                                        </div>
-                                        <div class="col-xs-6">
                                             <a href="#" class="active" id="register-form-link2">Register</a>
                                         </div>
                                     </div>
@@ -288,7 +285,7 @@
 
             });
         </script>
-
+<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 118px; width: 1524px; z-index: -999999; position: fixed;"><img style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 1524px; height: 1105.35px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -493.673px;" src="assets/img/backgrounds/1.jpg"></div>
     </body>
 
 </html>
