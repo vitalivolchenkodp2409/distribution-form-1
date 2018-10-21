@@ -57,6 +57,8 @@ class UsersController extends Controller
                         'email' => $request->input('email'),
                         'avatar' => $avatar,
                         'arrows' => $arrows,
+'api_token' => str_random(60),
+
                         'password' => bcrypt($request->input('password')),
                         'company' => $request->input('company'),
                         'contact_number' => $request->input('contact_number'),
@@ -101,6 +103,8 @@ class UsersController extends Controller
 			'username'	=> 	$request ->input('name'),
 		     'email'            => $request->input('email'),
 		     'password'         => bcrypt($request->input('password')),
+'api_token' => str_random(60),
+
 		    // 'company'          => $request->input('company'),
 		    // 'contact_number'   => $request->input('contact_number'),
 		     'ip'               => $request->ip(),
