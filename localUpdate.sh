@@ -13,6 +13,7 @@ git fetch;
 echo "wtf1";
 git pull origin $branch;
 echo "wtf2";
+rm -rf /var/www/laravel/database/migrations/*; 
 rsync -ra ./laravel/* /var/www/laravel/
 cp ./laravel/.* /var/www/laravel/
 cd /var/www/; 
