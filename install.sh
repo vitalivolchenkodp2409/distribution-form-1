@@ -11,6 +11,7 @@ apt-get install nginx -y;
 apt-get install -y --no-install-recommends apt-utils; 
 apt-get install software-properties-common -y;  
 apt-get -y install mysql-server; 
+apt-get install python-dev -y; 
 
 add-apt-repository ppa:ondrej/php -y; 
 apt-get update --allow-unauthenticated; 
@@ -66,7 +67,7 @@ composer install --no-dev;
 cd laravel; 
 php artisan key:generate;
 mysql -u$dbuser -p$dbpass -h$dbhost -e "create database $dbname;";
-apt-get install python-dev -y; 
+
 
 ~/$folderName/migrateAll.py;
 
