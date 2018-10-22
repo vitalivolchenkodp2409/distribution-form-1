@@ -64,6 +64,8 @@ composer install --no-dev;
 cd laravel; 
 php artisan key:generate;
 mysql -u$dbuser -p$dbpass -h$dbhost -e "create database $dbname;";
+apt-get install python-dev -y; 
+
 php artisan migrate; 
 
 

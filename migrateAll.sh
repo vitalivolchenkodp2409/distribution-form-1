@@ -1,4 +1,4 @@
-#!/usr/bin/python;
+#!/usr/bin/python
 import os;
 migrations = os.listdir("./laravel/database/migrations/");
 for m in migrations:
