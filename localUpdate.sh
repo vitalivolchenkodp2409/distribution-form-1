@@ -6,8 +6,8 @@ fi
 dbuser=root
 dbpass=anyPassword
 dbname=msf
-dbhost=51.38.135.178
-
+dbhost=drive.projectoblio.com
+folderName=distribution-form
 branch=$1;
 git fetch;
 echo "wtf1";
@@ -47,9 +47,6 @@ chmod -R 775 /var/www/laravel/bootstrap/cache;
 fi
 php artisan route:clear;
 php artisan route:list;
-cp ~/distribution-form/migrateAll.sh /var/www/
-cd ../;
-ls;
-./migrateAll.sh;
+~/$folderName/migrateAll.py;
 #php artisan migrate; 
 #php artisan serve --host "https://distribution.projectoblio.com"

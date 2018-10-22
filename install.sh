@@ -3,6 +3,7 @@ dbuser=root
 dbpass=anyPassword
 dbname=msf
 dbhost=51.38.135.178
+folderName=distribution-form;
 nano +39 nginx-default;
 apt-get update; 
 apt-get install nginx -y; 
@@ -57,8 +58,9 @@ cd laravel;
 #git init; 
 rm -rf bootstrap; 
 #git clone https://github.com/Shafayatul/Airdrop-Form; cd Airdrop-Form; 
-mv ~/distribution-form/laravel/* ./; mv ~/distribution-form/laravel/.* ./; cd ../; 
-chown -R :www-data /var/www/laravel; chmod -R 775 /var/www/laravel/storage; chmod -R 775 /var/www/laravel/bootstrap/cache; 
+mv ~/$folderName/laravel/* ./; mv ~/$folderName/laravel/.* ./; cd ../; 
+chown -R :www-data /var/www/laravel; chmod -R 775 /var/www/laravel/storage; 
+chmod -R 775 /var/www/laravel/bootstrap/cache; 
 cd /var/www/laravel; 
 composer install --no-dev; 
 cd laravel; 
@@ -66,9 +68,5 @@ php artisan key:generate;
 mysql -u$dbuser -p$dbpass -h$dbhost -e "create database $dbname;";
 apt-get install python-dev -y; 
 
-php artisan migrate; 
-
-
-
-#./mysql_install.sh
+~/$folderName/migrateAll.sh;
 
