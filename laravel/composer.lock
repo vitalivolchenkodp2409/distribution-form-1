@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d0a04760c2953e2a6cb4413215c7e624",
-    "content-hash": "a95e684c4da39b71726708484decda7b",
+    "hash": "e293ff8be230359b81e2054d7761a3ab",
+    "content-hash": "0b5e45814d22509f12bd724a29965709",
     "packages": [
         {
             "name": "aloha/twilio",
@@ -184,50 +184,6 @@
                 "recaptcha"
             ],
             "time": "2018-08-27 02:16:31"
-        },
-        {
-            "name": "caloskao/migrate-specific",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/caloskao/migrate-specific.git",
-                "reference": "eea5f6309e0d2024304788b7b29f69412d101dc6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/caloskao/migrate-specific/zipball/eea5f6309e0d2024304788b7b29f69412d101dc6",
-                "reference": "eea5f6309e0d2024304788b7b29f69412d101dc6",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CalosKao\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Calos Kao",
-                    "email": "calos3257@gmail.com"
-                }
-            ],
-            "description": "The Laravel framework artisan CLI extension command.",
-            "keywords": [
-                "artisan",
-                "database",
-                "eloquent",
-                "laravel",
-                "migrate",
-                "mysql"
-            ],
-            "time": "2018-09-21 07:37:30"
         },
         {
             "name": "defuse/php-encryption",
@@ -2138,6 +2094,50 @@
                 "x509"
             ],
             "time": "2018-04-15 16:55:05"
+        },
+        {
+            "name": "projectoblio/migrate-specific",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Project-Oblio/migrate-specific.git",
+                "reference": "eea5f6309e0d2024304788b7b29f69412d101dc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Project-Oblio/migrate-specific/zipball/eea5f6309e0d2024304788b7b29f69412d101dc6",
+                "reference": "eea5f6309e0d2024304788b7b29f69412d101dc6",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CalosKao\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Calos Kao",
+                    "email": "calos3257@gmail.com"
+                }
+            ],
+            "description": "The Laravel framework artisan CLI extension command.",
+            "keywords": [
+                "artisan",
+                "database",
+                "eloquent",
+                "laravel",
+                "migrate",
+                "mysql"
+            ],
+            "time": "2018-09-21 07:37:30"
         },
         {
             "name": "psr/container",
@@ -5536,7 +5536,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "andskur/laracrypto": 20
+        "andskur/laracrypto": 20,
+        "projectoblio/migrate-specific": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
