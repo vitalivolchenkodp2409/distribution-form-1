@@ -46,8 +46,9 @@ chmod -R 775 /var/www/laravel/bootstrap/cache;
 fi
 php artisan route:clear;
 php artisan route:list;
-cp ~/distribution-form/migrateAll.sh /var/www;
+cp ~/distribution-form/migrateAll.sh /var/www/
 cd ../;
+ls;
 ./migrateAll.sh;
 #php artisan migrate; 
 #php artisan serve --host "https://distribution.projectoblio.com"
