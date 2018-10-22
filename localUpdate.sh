@@ -31,7 +31,7 @@ rm -rf bootstrap/cache/packages.php;
 rm -rf bootstrap/cache/services.php;
 php artisan route:cache;
 composer install --no-scripts;
-composer update; 
+composer update --no-scripts; 
 php artisan key:generate;
 
 chown -R :www-data /var/www/laravel; 
