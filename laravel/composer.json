@@ -21,7 +21,7 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
-        "projectoblio/migrate-specific": "@dev",
+        "projectoblio/migrate-specific": "^1.0.1",
         "socialiteproviders/reddit": "^3.0"
     },
     "require-dev": {

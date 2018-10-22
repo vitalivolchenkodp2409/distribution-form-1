@@ -24,7 +24,9 @@ chmod -R +777 /var/www/laravel/*
 cd laravel;
 
 if [ $# -eq 2 ] || [ $# -eq 3 ] ; then
+rm -rf composer.lock
 rm -rf vendor;
+composer clear-cache;
 composer dump-autoload;
 php artisan clear-compiled; 
 rm -rf bootstrap/cache/packages.php;
