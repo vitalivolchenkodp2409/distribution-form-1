@@ -46,9 +46,10 @@ chmod -R 775 /var/www/laravel/bootstrap/cache;
 		mysql -u$dbuser -p$dbpass -h$dbhost -e "create database $dbname;" 
 	    	#mysql -u$dbuser -p$dbpass -h$dbhost $dbname < /root/distribution-form/backupDatabases/databaseBackup1.sql;
 	fi
+~/$folderName/migrateAll.py;
+
 fi
 php artisan route:clear;
 php artisan route:list;
-~/$folderName/migrateAll.py;
 #php artisan migrate; 
 #php artisan serve --host "https://distribution.projectoblio.com"
